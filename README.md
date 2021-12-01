@@ -1,24 +1,34 @@
-# README
+# アパレルショップ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+服のブランド販売ECサイト
 
-Things you may want to cover:
+### サイトテーマ
+シンプルで閲覧しやすい販売サイト
 
-* Ruby version
+### テーマを選んだ理由
+自分は服飾の専門学校に通っていましたので服に関しては他より自信はありますし、今まで数々のアパレルECサイトを見てきた中でレイアウト的に複雑でわかりにくい
+サイトが多々ありました。なので自分でシンプルでわかりやすいサイトが作れればと思いこのテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+服が好きな人、このブランドが好きな人
 
-* Configuration
+### 主な利用シーン
+どんな服が販売されてるのか見たい時、目当ての服の販売状況が見たい時、服を購入したい時
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
 
-* How to run the test suite
+## 開発環境を
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
