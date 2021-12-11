@@ -1,0 +1,13 @@
+<h1>商品詳細</h1>
+<% @item.each do |item| %>
+<%= item.image %>
+<p>商品名</p>
+<%= item.item_name %>
+<p>ジャンル</p>
+<%= item.genre %>
+<p>税抜価格</p>
+<%= item.price %>
+<% end %>
+<%= link_to '編集', edit_admins_item_path(@item) %>
+<%= link_to '削除', admin_items_path(@item), method: :delete %>
+<%= link_to 'Topへ', admins_root_path %>
