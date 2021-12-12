@@ -1,0 +1,18 @@
+<h1>商品編集</h1>
+  <%= form_with model:@item, url:admins_item_path(@item.id), local:true do |f| %>
+    <p>商品画像</p>
+    <%= f.attachment_field:image %>
+    <p>商品名</p>
+    <%= f.text_field:item_name %>
+    <p>ジャンル</p>
+    <%= f.select:genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい" %>
+    <p>税抜価格</p>
+    <%= f.text_field:price %>円
+    <p>販売ステータス</p>
+    <%= f.label :sales_status, '販売中' %>
+    <%= f.radio_button:sales_status, '1' %>
+    <%= f.label :sales_status, '販売停止' %>
+    <%= f.radio_button:sales_status, '0' %>
+    <%= f.submit '変更' %>
+  <% end %>
+  <%= link_to 'Topへ', admins_root_path %>

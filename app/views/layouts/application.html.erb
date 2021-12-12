@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% unless admin_signed_in? %>
+    <header>admin_signed_in</header>
+    <% end %>
     <%= yield %>
+
   </body>
 </html>

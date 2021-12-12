@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'cart_items/destroy_all'
+  resources :cart_items, only: [:index, :create, :update, :destroy] 
+  
+  resources :items, only: [:index, :show]
+  root to: 'homes#top'
   namespace :admins do
     root to: 'homes#top'
     resources :items
@@ -6,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
-    registrations: 'admin/registrations'
+    registrations: 'admins/registrations'
   }
   devise_for :customers, controllers: {
     sessions: 'customers/sessions',
