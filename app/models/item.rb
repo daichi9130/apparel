@@ -8,5 +8,13 @@ class Item < ApplicationRecord
       "販売停止"
     end
   end
-
+  
+  def sales_status_make
+    if sales_status == true
+      price * 1.1
+    else 
+      "SOLD OUT"
+    end 
+  end 
+    
 end

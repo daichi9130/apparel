@@ -1,2 +1,8 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<p>商品詳細</p>
+<!--商品画像-->
+<%= attachment_image_tag @item, :image %>
+<!--商品名・ジャンル名-->
+<%= @item.item_name %>
+<%= @item.genre %>
+<!--販売ステータス-->
+<%= @item.sales_status_make %>

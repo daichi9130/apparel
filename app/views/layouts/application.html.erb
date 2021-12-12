@@ -7,11 +7,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
     <% unless admin_signed_in? %>
-    <header>admin_signed_in</header>
+    <header>
+      <span>SHOP</span>
+      <ul>
+        <li><%= link_to 'JACKETS', items_path(genre: 'JACKETS') %></li>
+        <li><%= link_to 'TOPS', items_path(genre: 'TOPS') %></li>
+        <li><%= link_to 'TEES', items_path(genre: 'TEES') %></li>
+        <li><%= link_to 'PANTS', items_path(genre: 'PANTS') %></li>
+      </ul>
+    </header>
+    <footer>
+      <%= link_to 'CONTACT', 
+    </footer>
     <% end %>
     <%= yield %>
 
