@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   attachment :image
 
+  has_many :cart_items, dependent: :destroy
+
   def sales_status_text
     if sales_status == true
       "販売中"
@@ -8,13 +10,13 @@ class Item < ApplicationRecord
       "販売停止"
     end
   end
-  
+
   def sales_status_make
     if sales_status == true
-      price * 1.1
-    else 
+      (price * 1.1).to_i
+    else
       "SOLD OUT"
-    end 
-  end 
-    
+    end
+  end
+
 end

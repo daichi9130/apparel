@@ -1,19 +1,45 @@
-<h1>商品新規登録</h1>
-  <%= form_with model:@item, url:admins_items_path, local:true do |f| %>
-    <p>商品画像</p>
-    <%= f.attachment_field:image %>
-    <p>商品名</p>
-    <%= f.text_field:item_name %>
-    <p>ジャンル</p>
-    <%= f.select:genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい" %>
-    <p>税抜価格</p>
-    <%= f.text_field:price %>円
-    <p>販売ステータス</p>
-    <%= f.label :sales_status, '販売中' %>
-    <%= f.radio_button:sales_status, '1' %>
-    <%= f.label :sales_status, '販売停止' %>
-    <%= f.radio_button:sales_status, '0' %>
-    <%= f.submit '登録' %>
-  <% end %>
-  <%= link_to 'Topへ', admins_root_path %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8 pt-5 mt-5 text-center">
+        <div class="item pb-4 mt-5"><h1>商品新規登録</h1></div>
+        <%= form_with model:@item, url:admins_items_path, local:true do |f| %>
+        <div class="item pb-4 ml-5 pl-4">
+          <%= f.label :商品画像 %>
+          <%= f.attachment_field:image %>
+        </div>
+        <div class="item pb-4">
+          <%= f.label :商品名 %>
+          <%= f.text_field:item_name %>
+        </div>
+        <div class="item pb-4">
+          <%= f.label :ジャンル %>
+          <%= f.select:genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい" %>
+        </div>
+        <div class="item pb-4">
+          <%= f.label :税抜価格 %>
+          <%= f.text_field:price %>円
+        </div>
+        <div class="item pb-4">
+          <%= f.label :販売ステータス %>
+          <%= f.label :sales_status, '販売中' %>
+          <%= f.radio_button:sales_status, '1' %>
+          <%= f.label :sales_status, '販売停止' %>
+          <%= f.radio_button:sales_status, '0' %>
+        </div>
+        <div class="item pb-4">
+          <%= f.submit '登録' %>
+        </div>
+        <% end %>
+      </div>
+    <div class="col-md-2 pt-5 mt-5">
+       <div class="item pb-5 mt-5"></div>
+       <div class="item pb-2"></div>
+       <div class="item pb-5"></div>
+       <div class="item pb-5"></div>
+       <div class="item pb-5"></div>
+       <div class="item pb-5"></div>
+       <div class="item pb-5"><%= link_to 'Topへ', admins_root_path %></div>
+    </div>
+  </div>
+</div>

@@ -7,25 +7,72 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
+
   </head>
 
   <body>
-    <% unless admin_signed_in? %>
-    <header>
-      <span>SHOP</span>
-      <ul>
-        <li><%= link_to 'JACKETS', items_path(genre: 'JACKETS') %></li>
-        <li><%= link_to 'TOPS', items_path(genre: 'TOPS') %></li>
-        <li><%= link_to 'TEES', items_path(genre: 'TEES') %></li>
-        <li><%= link_to 'PANTS', items_path(genre: 'PANTS') %></li>
-      </ul>
-    </header>
+    <% unless params[:controller].include?("admin")  %>
+      <header>
+        <!--<div class="collapse" id="navbarToggleExternalContent">-->
+        <!--  <div class="bg-dark p-4">-->
+        <!--    <h5 class="text-white h4">SHOP</h5>-->
+        <!--    <span class="text-muted">-->
+        <!--      <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>-->
+        <!--      <%= link_to 'TOPS', items_path(genre: 'TOPS') %>-->
+        <!--      <%= link_to 'TEES', items_path(genre: 'TEES') %>-->
+        <!--      <%= link_to 'PANTS', items_path(genre: 'PANTS') %>-->
+        <!--    </span>-->
+        <!--  </div>-->
+        <!--</div>-->
+        <!--<nav class="navbar navbar-dark bg-dark">-->
+        <!--  <div class="container-fluid">-->
+        <!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" -->
+        <!--    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--      <span class="navbar-toggler-icon"></span>-->
+        <!--    </button>-->
+        <!--  </div>-->
+        <!--</nav>-->
+        <!--  <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>-->
+        <!--  <%= link_to 'TOPS', items_path(genre: 'TOPS') %>-->
+        <!--  <%= link_to 'TEES', items_path(genre: 'TEES') %>-->
+        <!--  <%= link_to 'PANTS', items_path(genre: 'PANTS') %>-->
+
+
+
+
+          <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+              <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>
+              <%= link_to 'TOPS', items_path(genre: 'TOPS') %>
+              <%= link_to 'TEES', items_path(genre: 'TEES') %>
+              <%= link_to 'PANTS', items_path(genre: 'PANTS') %>
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <div class="col-3">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <div class="col-6 text-center">
+                <p class="text-white">ロゴ</p>
+              </div>
+              <div class="col-3"></div>
+            </nav>
+          </div>
+      </header>
+    <% end %>
+
+    <main><%= yield %></main>
+
+    <% unless params[:controller].include?("admin") || admin_signed_in? %>
     <footer>
-      <%= link_to 'CONTACT', 
+      <%= link_to 'CONTACT', new_contact_path %>
     </footer>
     <% end %>
-    <%= yield %>
 
   </body>
 </html>

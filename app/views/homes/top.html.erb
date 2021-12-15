@@ -1,3 +1,6 @@
+<div class="row">
+<div class="col-md-2"></div>
+
 <!--<div class="carousel slide" id="新着商品画像" data-ride="carousel">-->
 <!--  <ol class="carousel-indicators">-->
     <!-- ここにインディケーターを記述 -->
@@ -6,7 +9,7 @@
 <!--  </ol>-->
 <!--  <div class="carousel-inner">-->
     <!-- ここに画像部分を記述 -->
-<!--    <div class="carousel-item active"><%#= image_tag 'ブラックアイパッチ.jpeg'   class="d-block w-100"%></div>-->
+    <!--<div class="carousel-item active"><%#= image_tag 'black.jpg', class:"d-block w-100"%></div>-->
 <!--    <div class="carousel-item"><img src="https://..." class="d-block w-100"></div>-->
 <!--    <div class="carousel-item"><img src="https://..." class="d-block w-100"></div>-->
 <!--    <div class="carousel-item"><img src="https://..." class="d-block w-100"></div>-->
@@ -14,12 +17,23 @@
 <!--  </div>-->
   <!-- 画像遷移のボタンを記述 -->
 <!--</div>-->
-
+<div class="col-md-8">
 <h1>ALL</h1>
+
+<div style="display: flex; flex-wrap: wrap;">
 <% @items.each do |item| %>
+<div class="box" style="width: 200px; margin-right: 20px;">
  <%= link_to item_path(item.id) do %>
- <%= attachment_image_tag item, :image %>
- <% end %>
+ <%= attachment_image_tag item, :image, :fill, 300, 200 %>
  <%= item.item_name %>
  <%= item.sales_status_make %>
+ <% end %>
+</div>
 <% end %>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>
+
+
+

@@ -1,2 +1,8 @@
-<h1>Contacts#new</h1>
-<p>Find me in app/views/contacts/new.html.erb</p>
+<h1>CONTACT</h1>
+ <%= form_with model:@contact, url:contacts_path, local:true do |f| %>
+  <%= f.text_field :name, placeholder: "お名前" %>
+  <%= f.email_field :email, placeholder: "メールアドレス" %>
+  <%= f.label :お問い合わせ内容 %>
+  <%= f.text_area :message %>
+  <%= f.submit 'この内容で確認する' %>
+ <% end %>

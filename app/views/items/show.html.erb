@@ -6,3 +6,10 @@
 <%= @item.genre %>
 <!--販売ステータス-->
 <%= @item.sales_status_make %>
+<!--サイズ選択-->
+<%= form_with model:@cart_item, url:{controller: 'cart_items', action: 'create'}, local:true do |f| %>
+ <%= f.hidden_field :item_id, :value => @item.id %>
+ <%= f.select :size, [["S","S"],["M","M"],["L","L"]], include_blank: "サイズ" %>
+ <%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "数量" %>
+ <%= f.submit 'カートに入れる' %>
+<% end %>

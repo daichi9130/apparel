@@ -5,14 +5,16 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
-    redirect_to 
+    if @contact.save then
+      ContactMailer.contact_mail(@contact).deliver
+      redirect_to new_contact_path
+    end
   end
-  
+
   private
-  
+
   def contact_params
      params.require(:contact).permit(:email, :name, :message)
-  end 
-    
+  end
+
 end
