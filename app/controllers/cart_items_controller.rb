@@ -1,7 +1,12 @@
 class CartItemsController < ApplicationController
-  before_action :authenticate_customer!, except: [:show, :index]
+  before_action :authenticate_customer!, except: [:index]
   def index
-    @cart_items = current_customer.cart_items
+    if customer_signed_in?
+      @cart_items = current_customer.cart_items
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    else
+      redirect_to new_customer_session_path
+    end
   end
 
   def create
@@ -20,6 +25,9 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = current_customer.cart_items.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all

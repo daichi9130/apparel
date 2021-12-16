@@ -1,7 +1,24 @@
-<% @items.each do |item| %>
- <p><%= link_to item.item_name, admins_item_path(item.id) %></p>
- <p><%= item.price %></p>
- <p><%= item.genre %></p>
- <p><%= item.sales_status_text %></p>
-<% end %>
-<%= link_to 'Topへ', admins_root_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="mt-5 mb-5">ジャンル一覧</h1>
+        <table align="center">
+          <tr>
+           <th class="item">商品ID</th>
+           <th class="item pl-5">商品名</th>
+           <th class="item pl-5">税抜価格</th>
+           <th class="item pl-5">販売ステータス</th>
+          </tr>
+          <% @items.each do |item| %>
+            <tr>
+              <td style="border:none;" class="item pt-4"><%= item.id %></td>
+              <td style="border:none;" class="item pl-5 pt-4"><%= link_to item.item_name, admins_item_path(item.id) %></td>
+              <td style="border:none;" class="item pl-5 pt-4"><%= item.price %></td>
+              <td style="border:none;" class="item pl-5 pt-4"><%= item.sales_status_text %></td>
+            </tr>
+          <% end %>
+            <caption class="text-center mt-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %></caption>
+        </table>
+    </div>
+  </div>
+</div>

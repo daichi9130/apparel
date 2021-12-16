@@ -14,33 +14,6 @@
   <body>
     <% unless params[:controller].include?("admin")  %>
       <header>
-        <!--<div class="collapse" id="navbarToggleExternalContent">-->
-        <!--  <div class="bg-dark p-4">-->
-        <!--    <h5 class="text-white h4">SHOP</h5>-->
-        <!--    <span class="text-muted">-->
-        <!--      <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>-->
-        <!--      <%= link_to 'TOPS', items_path(genre: 'TOPS') %>-->
-        <!--      <%= link_to 'TEES', items_path(genre: 'TEES') %>-->
-        <!--      <%= link_to 'PANTS', items_path(genre: 'PANTS') %>-->
-        <!--    </span>-->
-        <!--  </div>-->
-        <!--</div>-->
-        <!--<nav class="navbar navbar-dark bg-dark">-->
-        <!--  <div class="container-fluid">-->
-        <!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" -->
-        <!--    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">-->
-        <!--      <span class="navbar-toggler-icon"></span>-->
-        <!--    </button>-->
-        <!--  </div>-->
-        <!--</nav>-->
-        <!--  <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>-->
-        <!--  <%= link_to 'TOPS', items_path(genre: 'TOPS') %>-->
-        <!--  <%= link_to 'TEES', items_path(genre: 'TEES') %>-->
-        <!--  <%= link_to 'PANTS', items_path(genre: 'PANTS') %>-->
-
-
-
-
           <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
               <div class="bg-dark p-4">
@@ -50,27 +23,38 @@
               <%= link_to 'PANTS', items_path(genre: 'PANTS') %>
               </div>
             </div>
-            <nav class="navbar navbar-dark bg-dark">
+            <nav class="navbar navbar-dark p-4">
               <div class="col-3">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
                 aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
               </div>
               <div class="col-6 text-center">
-                <p class="text-white">ロゴ</p>
+                <%= image_tag 'baldgray.jpg', size: '100x80'%>
+                <!--<p class="logo">ロゴ</p>-->
               </div>
-              <div class="col-3"></div>
+              <div class="col-3 text-right pr-3">
+                <%= link_to new_customer_session_path, :style=>"color:black;" do %><i class="fas fa-user fa-lg"></i><% end %>
+                <%= link_to cart_items_path, :style=>"color:black;" do %><i class="fas fa-suitcase fa-lg pl-3"></i><% end %>
+              </div>
+
             </nav>
           </div>
       </header>
     <% end %>
 
-    <main><%= yield %></main>
+    <main>
+      <div class="main">
+        <%= yield %>
+      </div>
+    </main>
 
-    <% unless params[:controller].include?("admin") || admin_signed_in? %>
-    <footer>
-      <%= link_to 'CONTACT', new_contact_path %>
+    <% unless params[:controller].include?("admin") %>
+    <footer class="fixed-bottom">
+      <div class="card-footer text-muted">
+         <%= link_to 'CONTACT', new_contact_path %>
+      </div>
     </footer>
     <% end %>
 

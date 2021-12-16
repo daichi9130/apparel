@@ -1,13 +1,55 @@
-<h1>商品詳細</h1>
-<%= attachment_image_tag @item, :image %>
-<p>商品名</p>
-<%= @item.item_name %>
-<p>ジャンル</p>
-<%= @item.genre %>
-<p>税抜価格</p>
-<%= @item.price %>
-<p>販売ステータス</p>
-<%= @item.sales_status %>
-<%= link_to '編集', edit_admins_item_path(@item) %>
-<%= link_to '削除', admins_item_path(@item), method: :delete %>
-<%= link_to 'Topへ', admins_root_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="mt-5 mb-5 pb-4">商品詳細</h1>
+        <table style="border:none;" align="center">
+          <tr>
+            <th rowspan="5">
+              <%= attachment_image_tag @item, :image, :fill, 320, 400, format: 'jpeg' %>
+            </th>
+            <td style="border:none;">
+              <div class="box pr-4 ml-5 pl-5">
+                <span class="item mr-4 pl-4 ml-1">商品名:</span>
+                <span class="item"><%= @item.item_name %></span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="border:none;">
+              <div class="box ml-5 pl-5 mr-2">
+                <span class="item mr-4">ジャンル:</span>
+                <span class="item"><%= @item.genre %></span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="border:none;">
+              <div class="box ml-5 pl-2">
+                <span class="item mr-4">税抜価格:</span>
+                <span class="item"><%= @item.price %></span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="border:none;">
+              <div class="box">
+                <span class="item mr-4">販売ステータス:</span>
+                <span class="item"><%= @item.sales_status %></span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="border:none;">
+              <div class="box ml-5 pl-5 mr-2">
+                <span class="item"><%= link_to '編集', edit_admins_item_path(@item), class: 'btn btn-primary' %></span>
+                <span class="item pl-4"><%= link_to '削除', admins_item_path(@item), method: :delete, class: 'btn btn-danger'  %></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+          <div class="box mt-4">
+            <%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %>
+          </div>
+    </div>
+  </div>
+</div>

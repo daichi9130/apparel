@@ -1,0 +1,10 @@
+<h1>住所登録</h1>
+<%= form_with model:@shipping, url:shippings_path, local:true do |f| %>
+<%= f.label :受取人氏名 %>
+<%= f.text_field :recipient_name %>
+<%= f.label :郵便番号 %>
+<%= f.text_field :postal_code %>
+<%= f.label :住所 %>
+<%= f.text_field :address %>
+<%= f.submit '住所を追加する' %>
+<% end %>
