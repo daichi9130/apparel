@@ -6,11 +6,19 @@ class OrdersController < ApplicationController
 
   def create
     @cart_items = current_customer.cart_items.all
-    @order = current_customer.order.new(order_params)
-  end
-
-  def update
-
+    @totals = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price } + 500
+    @order = current_customer.orders.new(order_params)
+    @order.amount = @totals
+    @order.save
+      @cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart_item.item.id
+        order_detail.order_id = @order.id
+        order_detail.order_quantity = cart_item.quantity
+        order_detail.save
+      end
+    redirect_to orders_complete_path
+    @cart_items.destroy_all
   end
 
   def confirm
@@ -35,10 +43,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:address, :post_code, :receiver, :customer_id).merge(customer_id: current_customer.id)
-  end
-
-  def cart_item_params
-    params.require(:order).permit(:address, :post_code, :recipient_name)
-  end
+    #params.require(:order).permit(:shipping_id, :payment, :postage, :customer_id, :cart_item_id).merge(customer_id: current_customer.id)
+    params.permit(:shipping_id, :payment, :customer_id, :cart_item_id).merge(customer_id: current_customer.id)
+ end
 end

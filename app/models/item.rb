@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   attachment :image
 
   has_many :cart_items, dependent: :destroy
+  has_many :order_detail
 
   def sales_status_text
     if sales_status == true

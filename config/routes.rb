@@ -16,10 +16,14 @@ Rails.application.routes.draw do
   get 'orders/complete'
   resources :shippings, only: [:new, :create, :destroy]
   resources :orders, only: [:new, :create,]
+
   resources :contacts, only: [:new, :create]
 
-  get 'cart_items/destroy_all'
-  resources :cart_items, only: [:index, :create, :update, :destroy]
+  resources :cart_items, only: [:index, :create, :update, :destroy] do
+   collection do
+      delete 'destroy_all'
+    end
+  end
 
   resources :items, only: [:index, :show]
   root to: 'homes#top'

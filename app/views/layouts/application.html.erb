@@ -17,23 +17,25 @@
           <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
               <div class="bg-dark p-4">
-              <%= link_to 'JACKETS', items_path(genre: 'JACKETS') %>
-              <%= link_to 'TOPS', items_path(genre: 'TOPS') %>
-              <%= link_to 'TEES', items_path(genre: 'TEES') %>
-              <%= link_to 'PANTS', items_path(genre: 'PANTS') %>
+                <div class="select">
+                  <span class="item"><%= link_to 'JACKETS', items_path(genre: 'JACKETS'), :style=>"color:white;" %></span>
+                  <span class="item pl-2"><%= link_to 'TOPS', items_path(genre: 'TOPS'), :style=>"color:white;" %></span>
+                  <span class="item pl-2"><%= link_to 'TEES', items_path(genre: 'TEES'), :style=>"color:white;" %></span>
+                  <span class="item pl-2"> <%= link_to 'PANTS', items_path(genre: 'PANTS'), :style=>"color:white;" %></span>
+                </div>
               </div>
             </div>
             <nav class="navbar navbar-dark pt-0">
-              <div class="col-3">
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+              <div class="col-3 text-top">
+                <button class="navbar-toggler bg-dark mb-4 pt-0 pr-1 pl-1 pb-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
                 aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
               </div>
-              <div class="col-6 text-center">
-                <%= link_to image_tag('baldgray.jpg', size: '100x80'), root_path %>
+              <div class="col-6 text-center mt-3">
+                <%= link_to image_tag('baldgray.jpg', size: '120x100'), root_path %>
               </div>
-              <div class="col-3 text-right pr-3">
+              <div class="col-3 text-right pr-3 mb-4">
                 <%= link_to new_customer_session_path, :style=>"color:black;" do %><i class="fas fa-user fa-lg"></i><% end %>
                 <%= link_to cart_items_path, :style=>"color:black;" do %><i class="fas fa-suitcase fa-lg pl-3"></i><% end %>
               </div>
@@ -50,10 +52,12 @@
     </main>
 
     <% unless params[:controller].include?("admin") %>
-    <footer class="footer">
-      <div class="card-footer text-muted">
-         <%= link_to 'CONTACT', new_contact_path %>
-      </div>
+    <footer class="footer fixed-bottom pb-0">
+      <div class="card-footer text-muted text-center">
+        <span class="text pb-0 pt-0">
+         <%= link_to 'CONTACT', new_contact_path, :style=>"color:black;" %>
+         <h4>@Bald Gray</h4>
+      </span>
     </footer>
     <% end %>
 

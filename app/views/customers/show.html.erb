@@ -1,10 +1,19 @@
-<h1>My ACCOUNT</h1>
-<p>注文履歴</p>
-<p>アカウント詳細</p>
-<% @shippings.each do |ship| %>
-<%= ship.recipient_name %>
-<%= ship.postal_code %>
-<%= ship.address %>
-<% end %>
-<%= link_to '住所追加', new_shipping_path %>
-<%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>My ACCOUNT</h1>
+      <p>注文履歴</p>
+      <% @orders.each do |order| %>
+      <%= order.created_at %>
+      <% end %>
+      <p>アカウント詳細</p>
+      <% @shippings.each do |ship| %>
+      <%= ship.recipient_name %>
+      <%= ship.postal_code %>
+      <%= ship.address %>
+      <% end %>
+      <%= link_to '住所追加', new_shipping_path %>
+      <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

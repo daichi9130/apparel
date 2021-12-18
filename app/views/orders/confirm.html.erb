@@ -27,6 +27,12 @@
         <caption>支払方法<%= @payment %></caption>
         <caption>お届け先<%= @shipping.address %></caotion>
       </table>
+      <%= form_with model:@order, url:orders_path, method: :post, local:true do |f| %>
+        <%= f.hidden_field :postage, :value => 500 %>
+        <%= f.hidden_field :payment, :value => @payment %>
+        <%= f.hidden_field :shipping_id, :value => @shipping.id %>
+        <%= f.submit '注文完了', name: nil %>
+      <% end %>
     </div>
   </div>
 </div>
