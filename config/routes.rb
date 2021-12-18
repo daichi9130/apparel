@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }
 
   post 'orders/confirm' => 'orders#confirm'
+  get 'orders/confirm' => 'orders#confirm_get'
   get 'orders/complete'
   resources :shippings, only: [:new, :create, :destroy]
   resources :orders, only: [:new, :create,]

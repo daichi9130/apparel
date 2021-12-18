@@ -13,7 +13,7 @@
 
   <body>
     <% unless params[:controller].include?("admin")  %>
-      <header>
+      <header class="fixed-top">
           <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
               <div class="bg-dark p-4">
@@ -23,7 +23,7 @@
               <%= link_to 'PANTS', items_path(genre: 'PANTS') %>
               </div>
             </div>
-            <nav class="navbar navbar-dark p-4">
+            <nav class="navbar navbar-dark pt-0">
               <div class="col-3">
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
                 aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +31,7 @@
                 </button>
               </div>
               <div class="col-6 text-center">
-                <%= image_tag 'baldgray.jpg', size: '100x80'%>
-                <!--<p class="logo">ロゴ</p>-->
+                <%= link_to image_tag('baldgray.jpg', size: '100x80'), root_path %>
               </div>
               <div class="col-3 text-right pr-3">
                 <%= link_to new_customer_session_path, :style=>"color:black;" do %><i class="fas fa-user fa-lg"></i><% end %>
@@ -51,7 +50,7 @@
     </main>
 
     <% unless params[:controller].include?("admin") %>
-    <footer class="fixed-bottom">
+    <footer class="footer">
       <div class="card-footer text-muted">
          <%= link_to 'CONTACT', new_contact_path %>
       </div>
