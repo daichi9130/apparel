@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
-    if customer_signed_in?
+    if resource.class == Admin
+      admins_root_path
+    elsif resource.class == Customer
       customer_path(current_customer)
     else
-      admins_root_path
+      root_path
     end
   end
 

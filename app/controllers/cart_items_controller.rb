@@ -14,7 +14,8 @@ class CartItemsController < ApplicationController
     if @cart_item.save
       redirect_to cart_items_path
     else
-      puts "失敗"
+      @item = Item.find(@cart_item.item_id)
+      render template: "items/show"
     end
   end
 

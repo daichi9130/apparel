@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      cart_item: カート
+    attributes:
+      cart_item:
+        quantity: 数量
+        size: サイズ
+
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"

@@ -4,7 +4,9 @@
       <h1>My ACCOUNT</h1>
       <p>注文履歴</p>
       <% @orders.each do |order| %>
-      <%= order.created_at %>
+        <%= link_to item_customers_path(order_id: order.id) do %>
+          <%= l order.created_at %>
+        <% end %>
       <% end %>
       <p>アカウント詳細</p>
       <% @shippings.each do |ship| %>
