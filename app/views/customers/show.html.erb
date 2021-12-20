@@ -1,21 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>My ACCOUNT</h1>
-      <p>注文履歴</p>
-      <% @orders.each do |order| %>
-        <%= link_to item_customers_path(order_id: order.id) do %>
-          <%= l order.created_at %>
-        <% end %>
-      <% end %>
-      <p>アカウント詳細</p>
-      <% @shippings.each do |ship| %>
-      <%= ship.recipient_name %>
-      <%= ship.postal_code %>
-      <%= ship.address %>
-      <% end %>
-      <%= link_to '住所追加', new_shipping_path %>
-      <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %>
-    </div>
+    <div class="col-md-2"></div>
+      <div class="col-md-8 text-center mt-4">
+        <h1>My ACCOUNT</h1>
+      </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4 text-center ml-3">
+        <div class="box bg-light w-75 ml-4">
+          <h5 class="text-left ml-3">注文履歴</h5>
+          <% @orders.each do |order| %>
+            <div class="item">
+              <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
+                <%= l order.created_at %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <p>アカウント詳細</p>
+        <div>
+          <% @shippings.each do |ship| %>
+            <span><%= ship.recipient_name %></span>
+            <span><%= ship.postal_code %></span>
+            <span><%= ship.address %></span>
+          <% end %>
+        </div>
+        <%= link_to '住所追加', new_shipping_path %>
+        <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %>
+      </div>
+    <div class="col-md-2"></div>
   </div>
 </div>

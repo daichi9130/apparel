@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1 class="mt-5 mb-5 pb-4">商品詳細</h1>
+      <h1 class="mb-5"><span class="bg-secondary rounded" style="color:white">商品詳細</span></h1>
         <table style="border:none;" align="center">
           <tr>
             <th rowspan="5">
-              <%= attachment_image_tag @item, :image, :fill, 320, 400, format: 'jpeg' %>
+              <%= attachment_image_tag @item, :image, :fill, 350, 400, format: 'jpeg' %>
             </th>
             <td style="border:none;">
               <div class="box pr-4 ml-5 pl-5">
@@ -47,7 +47,7 @@
             </td>
           </tr>
         </table>
-          <div class="box mt-4">
+          <div class="box mt-5">
             <%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %>
           </div>
     </div>
