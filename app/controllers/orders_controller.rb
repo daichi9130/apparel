@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order.amount = @totals
     @order.save
       @cart_items.each do |cart_item|
-        order_detail = OrderDetail.new
+        order_detail = OrderDetail.new  
         order_detail.item_id = cart_item.item.id
         order_detail.order_id = @order.id
         order_detail.order_quantity = cart_item.quantity

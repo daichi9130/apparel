@@ -32,10 +32,10 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  resources :customers, only: [:show] do
+  resources :customers, only: [:show,] do
    collection do
       get 'item'
-    end 
-  end 
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

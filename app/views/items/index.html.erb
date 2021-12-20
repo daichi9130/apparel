@@ -1,7 +1,7 @@
 <%#= @items params[:genre] %>
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center ml-3">
     　<div style="display: flex; flex-wrap: wrap;">
         <% @items.each do |item| %>
         <%= link_to item_path(item.id), :style=>"color:black;" do %>

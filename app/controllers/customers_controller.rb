@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
 
   def item
     @order = Order.find(params[:order_id])
-    @order_detail = OrderDetail.find_by(order_id: params[:order_id])
+    @order_details = OrderDetail.where(order_id: params[:order_id])
   end
+
 end
