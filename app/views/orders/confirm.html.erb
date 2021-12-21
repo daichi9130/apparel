@@ -1,8 +1,8 @@
 <div class="container text-center">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 mt-3">
       <h1>注文情報確認</h1>
-      <table class="table">
+      <table align="center" border="1" style="border-collapse: collapse" class="w-75 mt-4">
         <tr>
           <th colspan="2">商品名</th>
           <th>価格</th>
@@ -11,21 +11,23 @@
         </tr>
         <% @cart_items.each do |cart_item| %>
           <tr>
-            <td rowspan="2"><%= attachment_image_tag cart_item.item, :image, :fill, 300, 200 %></td>
+            <td rowspan="2"><%= attachment_image_tag cart_item.item, :image, :fill, 200, 100 %></td>
             <td><%= cart_item.item.item_name %></td>
             <td rowspan="2"><%= cart_item.item.sales_status_make %></td>
             <td rowspan="2"><%= cart_item.quantity %></td>
             <td rowspan="2"><%= cart_item.sum_of_price %></td>
           </tr>
           <tr>
-            <td><%= cart_item.size %></td>
+            <td>
+              <div class="item">サイズ:<%= cart_item.size %></div>
+            </td>
           </tr>
         <% end %>
         <caption>小計 ¥<%= @total.round.to_s(:delimited)%></caption>
         <caption>送料 ¥<%= @postage %></caption>
         <caption>請求金額 ¥<%= @totals.round.to_s(:delimited) %></caption>
-        <caption>支払方法<%= @payment %></caption>
-        <caption>お届け先<%= @shipping.address %></caotion>
+        <caption>支払方法:  <%= @payment %></caption>
+        <caption>お届け先:  <%= @shipping.address %></caotion>
       </table>
       <%= form_with model:@order, url:orders_path, method: :post, local:true do |f| %>
         <%= f.hidden_field :postage, :value => 500 %>

@@ -4,33 +4,35 @@
       <div class="col-md-8 text-center mt-5">
         <%= form_with(model:@order, local: true, url:orders_confirm_path, method: :post) do |f| %>
           <h3>支払方法</h3>
-          <div class="item">
-            <%= f.radio_button :payment,:クレジットカード, checked: "checked" %>
-      　　    <%= f.label :payment, 'クレジットカード' %>
-      　   </div>
-      　   <div class="item">
-      　　    <%= f.radio_button :payment,:銀行振込, checked: "checked" %>
-      　　    <%= f.label :payment, '銀行振込' %>
+          <div class="item mt-3">
+            <span class="item ml-2 pl-2">
+              <%= f.radio_button :payment,:クレジットカード, checked: "checked" %>
+      　　      <%= f.label :payment, 'クレジットカード' %></br>
+      　　    </span>
+      　　    <span class="item mr-5 pr-5">
+      　　      <%= f.radio_button :payment,:銀行振込, checked: "checked"%>
+      　　      <%= f.label :payment, '銀行振込' %>
+      　　    </span>
       　   </div>
       </div>
     <div class="col-md-2"></div>
   </div>
-    <div class="row">
-      <div class="col-md-3"></div>
-        <div class="col-md-6 text-center">
+  <div class="row">
+    <div class="col-md-3"></div>
+      <div class="col-md-6 text-center mt-3">
         <h3>お届け先</h3>
-          <div class="item"><%= f.collection_select(:address, current_customer.shippings, :id, :address, :include_blank => "登録先住所から選択") %></div>
-        <div class="item mt-4"><%= f.submit '注文情報確認' %></div>
-        </div>
-      <div class="col-md-3"></div>
-    </div>
-      <% end %>
+          <div class="item mt-3"><%= f.collection_select(:address, current_customer.shippings, :id, :address, :include_blank => "登録先住所から選択") %></div>
+          <div class="item mt-4"><%= f.submit '注文情報確認' %></div>
+      </div>
+    <div class="col-md-3"></div>
+    <% end %>
+  </div>
       <div class="row">
         <div class="col-md-3"></div>
-          <div class="col-md-6">
-            <div class="box mt-5">
+          <div class="col-md-6 text-center">
+            <div class="box mt-5 mr-5">
               <span class="item mr-3"><%= link_to '新しい住所を追加する', cart_items_path, class: 'btn btn-success p-0' %></span>
-              <span class="item ml-3"><%= link_to 'カートに戻る', cart_items_path, class: 'btn btn-primary p-0' %></span>
+              <span class="item ml-4"><%= link_to 'カートに戻る', cart_items_path, class: 'btn btn-primary p-0' %></span>
             </div>
           </div>
         <div class="col-md-3"></div>

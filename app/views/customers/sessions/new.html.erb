@@ -7,10 +7,10 @@
             <h2 class="mb-4"><span class="bg-secondary rounded">ログイン</span></h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field md-3 pb-3">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: '30' %>
               </div>
-              <div class="field pl-5 mb-3 pr-3">
-                <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
+              <div class="field pl-5 mb-3 pr-5">
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", size: '30' %>
               </div>
               <div class="actions mt-3 mb-3">
                 <%= f.submit "ログイン" %>

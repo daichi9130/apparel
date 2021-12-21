@@ -2,22 +2,11 @@
   <div class="row">
     <div class="col-md-12 text-center ml-3">
 
-
-<div class="carousel slide" id="新着商品画像" data-ride="carousel">
-  <ol class="carousel-indicators">
-     <!--ここにインディケーターを記述-->
-    <li data-target="新着商品画像" data-slide-to="0" class="active"></li>
-    <li data-target="新着商品画像" data-slide-to="1"></li>
-  </ol>
-  <div class="carousel-inner">
-     <!--ここに画像部分を記述-->
-    <div class="carousel-item active"><%= image_tag 'black.jpg', size: '50x400', class:"d-block w-100" %></div>
-    <div class="carousel-item active"><%= image_tag 'baldgray.jpg', size: '50x400', class:"d-block w-100" %></div>
-    <div class="carousel-item"><img src="https://..." class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://..." class="d-block w-100"></div>
-
+<div id="box">
+  <div id="images">
+    <div class="image1"><%= image_tag 'black.jpg', size: '50x400', class:"d-block w-100" %></div>
+    <div class="image2"><%= image_tag 'baldgray.jpg', size: '50x400', class:"d-block w-100" %></div>
   </div>
-   <!--画像遷移のボタンを記述-->
 </div>
 
 <h1 class="name pb-3">ALL</h1>

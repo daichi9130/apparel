@@ -8,11 +8,11 @@
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field mb-3">
                 <%= f.label :メールアドレス %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: '30' %>
               </div>
               <div class="field pl-4 mb-3">
                 <%= f.label :パスワード %>
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.password_field :password, autocomplete: "current-password", size: '30' %>
               </div>
               <div class="actions mt-3">
                 <%= f.submit "ログイン" %>
