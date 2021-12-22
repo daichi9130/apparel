@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1 class="mb-5"><span class="bg-secondary rounded" style="color:white">商品詳細</span></h1>
+      <h1 class="mb-5"><span class="bg-secondary rounded font-weight-bold" style="color:white">商品詳細</span></h1>
         <table style="border:none;" align="center">
           <tr>
             <th rowspan="5">
@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <td style="border:none;">
-              <div class="box ml-5 pl-5 mr-2">
+              <div class="box ml-5 pl-5 mr-5">
                 <span class="item mr-4">ジャンル:</span>
                 <span class="item"><%= @item.genre %></span>
               </div>
@@ -24,7 +24,7 @@
           </tr>
           <tr>
             <td style="border:none;">
-              <div class="box ml-5 pl-2">
+              <div class="box ml-5 pl-2 mr-2">
                 <span class="item mr-4">税抜価格:</span>
                 <span class="item"><%= @item.price %></span>
               </div>
@@ -34,7 +34,7 @@
             <td style="border:none;">
               <div class="box">
                 <span class="item mr-4">販売ステータス:</span>
-                <span class="item"><%= @item.sales_status %></span>
+                <span class="item"><%= @item.sales_status_text %></span>
               </div>
             </td>
           </tr>

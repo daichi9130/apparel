@@ -21,11 +21,11 @@
                 <div class="item">サイズ:<%= cart_item.size %></div>
                 <div class="item"><%= link_to '削除', cart_item_path(cart_item.id), method: :delete %></div>
               </td>
-              <td>¥<%= cart_item.item.sales_status_make %></td>
+              <td><%= cart_item.item.sales_status_make %></td>
               <td>
                 <!--部分テンプレート--><%= render 'cart_items/list', cart_item: cart_item %>
               </td>
-              <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price %></div></td>
+              <td><div id="cart_item_price_<%= cart_item.id %>"><%= cart_item.sum_of_price %></div></td>
             </tr>
             <% end %>
           </tbody>

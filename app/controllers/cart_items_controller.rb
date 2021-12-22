@@ -3,7 +3,11 @@ class CartItemsController < ApplicationController
   def index
     if customer_signed_in?
       @cart_items = current_customer.cart_items
-      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+      
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price(true) }
+      
+      
+      
     else
       redirect_to new_customer_session_path
     end

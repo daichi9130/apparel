@@ -11,7 +11,7 @@
       <div class="item"><%= @item.genre %></div>
 
       <!--販売ステータス-->
-      <div class="item mt-3">¥<%= @item.sales_status_make %></div>
+      <div class="item mt-3"><%= @item.sales_status_make %></div>
 
       <!--サイズ選択・数量選択・カートに入れる-->
       <%= form_with model:@cart_item, url:{controller: 'cart_items', action: 'create'}, local:true do |f| %>

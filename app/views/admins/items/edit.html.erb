@@ -3,19 +3,19 @@
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
         <div class="item pb-4">
-          <h1><span class="bg-primary rounded" style="color:white">商品編集</span></h1>
+          <h1><span class="bg-primary rounded font-weight-bold" style="color:white">商品編集</span></h1>
         </div>
       </div>
     <div class="col-md-2"></div>
   </div>
 
-  <%= form_with model:@item, url:admins_item_path(@item.id), local:true do |f| %>
+  <%= form_with model:@item, url:admins_item_path(@item.id), local:true, method: :patch do |f| %>
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center ml-5 mr-4 pl-1">
-        <div class="box pb-4 ml-3">
+        <div class="box pb-4 ml-3 mr-3">
           <span class="item ml-5 pl-5 mr-3"><%= f.label :商品画像 %></span>
-          <span class="item pl-3 mr-5"><%= f.attachment_field:image %></span>
+          <span class="item mr-5"><%= f.attachment_field:image %></span>
         </div>
       </div>
     <div class="col-md-2"></div>
@@ -37,7 +37,7 @@
       <div class="col-md-8 text-center">
         <div class="box pb-4">
           <span class="item pr-3 pl-1"><%= f.label :税抜価格 %></span>
-          <span class="item"><%= f.text_field:price %> 円</span>
+          <span class="item"><%= f.text_field:price, :style=>"text-align:right" %> 円</span>
         </div>
       </div>
     <div class="col-md-2"></div>
@@ -46,8 +46,8 @@
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
-        <div class="box pb-4">
-          <span class="item pr-5 pl-3"><%= f.label :ジャンル %></span>
+        <div class="box pb-4 mr-5 ml-3">
+          <span class="item pr-3 pl-3"><%= f.label :ジャンル %></span>
           <span class="item mr-5"><%= f.select:genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい", :size => "100*30" %></span>
         </div>
       </div>
@@ -57,15 +57,15 @@
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center mr-5">
-        <div class="box pb-4 mr-5 pr-3">
-          <span class="item mr-4 pr-3"><%= f.label :販売ステータス %></span>
-          <span class="item pr-2">
-            <%= f.label :sales_status, '販売中' %>
-            <%= f.radio_button:sales_status, '1' %>
-          </span>
+        <div class="box pb-4 mr-5 pr-5 ml-3">
+          <span class="item mr-2 pr-2"><%= f.label :販売ステータス %></span>
           <span class="item">
+            <%= f.label :sales_status, '販売中' %>
+            <%= f.radio_button :sales_status, '1', checked: @item.sales_status ? true : false %>
+          </span>
+          <span class="item pl-3">
             <%= f.label :sales_status, '販売停止' %>
-            <%= f.radio_button:sales_status, '0' %>
+            <%= f.radio_button :sales_status, '0', checked: @item.sales_status ? false : true %>
           </span>
         </div>
       </div>
@@ -75,14 +75,21 @@
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
-        <div class="box pb-4 ml-5 pl-5">
-          <span class="item"><%= f.submit '変更', class: 'btn btn-primary' %></span>
-          <span class="item pb-5 pl-4 mr-5 pr-3"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %></span>
+        <div class="box pb-4 ml-5 pl-5 pr-5">
+          <span class="item pr-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %></span>
+          <span class="item pb-5 pl-4 mr-5 pr-3"><%= f.submit '変更', class: 'btn btn-primary' %></span>
         </div>
       </div>
     <div class="col-md-2"></div>
   </div>
   <% end %>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <% if @item.errors.any? %>
+        <%= @item.errors.count %>件未入力項目があります
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

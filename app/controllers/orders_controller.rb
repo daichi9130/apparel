@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @cart_items = current_customer.cart_items.all
-    @totals = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price } + 500
+    @totals = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price(true) } + 500
     @order = current_customer.orders.new(order_params)
     @order.amount = @totals
     @order.save
@@ -27,8 +27,8 @@ class OrdersController < ApplicationController
       return
     end
     @cart_items = current_customer.cart_items.all
-    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-    @totals = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price } + 500
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price(true) }
+    @totals = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price(true) } + 500
     @shipping = Shipping.find(params[:order][:address])
     @payment = params[:order][:payment]
     @postage = 500

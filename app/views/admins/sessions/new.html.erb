@@ -1,18 +1,16 @@
 <div class="container">
   <div class="row mt-5"></div>
-  <div class="row mt-5"></div>
+  <div class="row mt-4"></div>
     <div class="row">
       <div class="col-3"></div>
          <div class="col-6 text-center">
-            <h2 class="mb-3"><span class="bg-secondary rounded">管理者ログイン</span></h2>
+            <h2 class="mb-4"><span class="bg-secondary rounded font-weight-bold">管理者ログイン</span></h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field mb-3">
-                <%= f.label :メールアドレス %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: '30' %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: '30', placeholder: "メールアドレス" %>
               </div>
-              <div class="field pl-4 mb-3">
-                <%= f.label :パスワード %>
-                <%= f.password_field :password, autocomplete: "current-password", size: '30' %>
+              <div class="field mb-3">
+                <%= f.password_field :password, autocomplete: "current-password", size: '30', placeholder: "パスワード" %>
               </div>
               <div class="actions mt-3">
                 <%= f.submit "ログイン" %>

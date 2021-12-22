@@ -28,16 +28,21 @@
 
  #box{
   height: 400px;
+  margin-top: 30px;
  }
  .image1 {
-  background-image: url(black.jpg);
+  background-image: url(jac.jpg);
   width: 400px !important;
-  height: 400px !important;
+  height: 420px !important;
   margin-left: 340px;
  }
  .image2 {
-  background-image: url(baldgray.jpg);
+  background-image: url(top6.jpg);
   width: 460px !important;
-  height: 400px !important;
-  margin-left: 340px;
+  height: 420px !important;
+  margin-left: 310px;
+ }
+
+ .field_with_errors{
+  display: contents;
  }
