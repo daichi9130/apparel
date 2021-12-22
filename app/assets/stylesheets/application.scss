@@ -27,11 +27,17 @@
  }
 
  #box{
-  height: 600px;
+  height: 400px;
  }
  .image1 {
   background-image: url(black.jpg);
+  width: 400px !important;
+  height: 400px !important;
+  margin-left: 340px;
  }
  .image2 {
   background-image: url(baldgray.jpg);
+  width: 460px !important;
+  height: 400px !important;
+  margin-left: 340px;
  }

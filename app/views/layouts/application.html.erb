@@ -33,7 +33,7 @@
                 </button>
               </div>
               <div class="col-6 text-center mt-3">
-                <%= link_to image_tag('baldgray.jpg', size: '120x100'), root_path %>
+                <%= link_to image_tag('baldgray.jpg', size: '120x100'), root_path, data: {"turbolinks"=>false} %>
               </div>
               <div class="col-3 text-right pr-3 mb-4">
                 <%= link_to new_customer_session_path, :style=>"color:black;" do %><i class="fas fa-user fa-lg"></i><% end %>

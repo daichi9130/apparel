@@ -1,21 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center ml-3">
-
-<div id="box">
-  <div id="images">
-    <div class="image1"><%= image_tag 'black.jpg', size: '50x400', class:"d-block w-100" %></div>
-    <div class="image2"><%= image_tag 'baldgray.jpg', size: '50x400', class:"d-block w-100" %></div>
-  </div>
-</div>
-
-<h1 class="name pb-3">ALL</h1>
-
+      <div id="box">
+        <div id="images">
+          <div class="image1"></div>
+          <div class="image2"></div>
+        </div>
+      </div>
+      <h1 class="name pb-3 mr-4 pr-2">ALL</h1>
       <div style="display: flex; flex-wrap: wrap;">
-
         <% @items.each do |item| %>
          <%= link_to item_path(item.id), :style=>"color:black;" do %>
-         <%= attachment_image_tag item, :image, :fill, 270, 180 %></br>
+         <%= attachment_image_tag item, :image, :fill, 270, 240 %></br>
          <%= item.item_name %></br>
          <%= item.sales_status_make %>
          <% end %>
