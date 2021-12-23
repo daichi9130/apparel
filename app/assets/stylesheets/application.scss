@@ -31,13 +31,13 @@
   margin-top: 30px;
  }
  .image1 {
-  background-image: url(jac.jpg);
+  background-image: image-url("jac.jpg");
   width: 400px !important;
   height: 420px !important;
   margin-left: 340px;
  }
  .image2 {
-  background-image: url(top6.jpg);
+  background-image: image-url("top6.jpg");
   width: 460px !important;
   height: 420px !important;
   margin-left: 310px;
