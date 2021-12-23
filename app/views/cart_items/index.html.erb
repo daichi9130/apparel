@@ -25,11 +25,11 @@
               <td>
                 <!--部分テンプレート--><%= render 'cart_items/list', cart_item: cart_item %>
               </td>
-              <td><div id="cart_item_price_<%= cart_item.id %>"><%= cart_item.sum_of_price %></div></td>
+              <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price %></div></td>
             </tr>
             <% end %>
           </tbody>
-          <caption>小計 ¥<%= @total.round.to_s(:delimited)%></caption>
+          <caption>小計 <span id="cart_price_total">¥<%= @total.round.to_s(:delimited)%></span></caption>
           <caption>
             <%= link_to '買い物を続ける', root_path, class: "btn btn-dark" %>
             <%= link_to '購入手続きへ', new_order_path, class: "btn btn-secondary" %>

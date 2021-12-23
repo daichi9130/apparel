@@ -7,8 +7,13 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save then
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to new_contact_path
+      redirect_to contacts_complete_path
+    else
+      render :new
     end
+  end
+
+  def complete
   end
 
   private

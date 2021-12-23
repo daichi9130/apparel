@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
   def confirm_get
     redirect_to cart_items_path
   end
+  
   def complete
   end
 
@@ -45,5 +46,5 @@ class OrdersController < ApplicationController
   def order_params
     #params.require(:order).permit(:shipping_id, :payment, :postage, :customer_id, :cart_item_id).merge(customer_id: current_customer.id)
     params.permit(:shipping_id, :payment, :customer_id, :cart_item_id).merge(customer_id: current_customer.id)
- end
+  end
 end

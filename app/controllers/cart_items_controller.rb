@@ -3,11 +3,8 @@ class CartItemsController < ApplicationController
   def index
     if customer_signed_in?
       @cart_items = current_customer.cart_items
-      
-      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price(true) }
-      
-      
-      
+      @total = @cart_items.includes(:item).sum('items.price * cart_items.quantity')
+      @total = (@total * 1.1).floor
     else
       redirect_to new_customer_session_path
     end
@@ -27,6 +24,8 @@ class CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.find(params[:id])
     @cart_item.update(cart_items_params)
     @cart_item = CartItem.find(params[:id])
+    @total = current_customer.cart_items.includes(:item).sum('items.price * cart_items.quantity')
+    @total = (@total * 1.1).floor
   end
 
   def destroy
