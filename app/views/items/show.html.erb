@@ -1,26 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 text-right pr-4 mt-5">
-      <!--商品画像-->
       <%= attachment_image_tag @item, :image, :fill, 320, 340, formaat: 'jpeg' %>
     </div>
     <div class="col-md-6">
-
-      <!--商品名・ジャンル名-->
       <h4 class="item mt-5 pt-5"><%= @item.item_name %></h4>
       <div class="item"><%= @item.genre %></div>
-
-      <!--販売ステータス-->
       <div class="item mt-3"><%= @item.sales_status_make %></div>
-
-      <!--サイズ選択・数量選択・カートに入れる-->
       <%= form_with model:@cart_item, url:{controller: 'cart_items', action: 'create'}, local:true do |f| %>
-       <%= f.hidden_field :item_id, :value => @item.id %>
-       <div class="item mt-3"><%= f.select :size, [["S","S"],["M","M"],["L","L"]], include_blank: "サイズ" %></div>
-       <div class="item mt-3"><%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "数量" %></div>
-       <div class="item mt-5"><%= f.submit 'カートに入れる', disabled: !@item.sales_status, class: "btn btn-dark" %></div>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+          <div class="item mt-3"><%= f.select :size, [["S","S"],["M","M"],["L","L"]], include_blank: "サイズ" %></div>
+          <div class="item mt-3"><%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "数量" %></div>
+          <div class="item mt-5"><%= f.submit 'カートに入れる', disabled: !@item.sales_status, class: "btn btn-dark" %></div>
       <% end %>
-
       <% if @cart_item.errors.any? %>
         <div id="error_explanation">
           <ul class="item mt-3">

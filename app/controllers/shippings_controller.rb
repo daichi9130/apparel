@@ -1,4 +1,5 @@
 class ShippingsController < ApplicationController
+
   def new
     @shipping = Shipping.new
   end
@@ -19,6 +20,6 @@ class ShippingsController < ApplicationController
 
   def shipping_params
     params.require(:shipping).permit(:recipient_name, :postal_code, :address)
-    # params.require(:shipping).permit(:recipient_name, :postal_code, :address).merge(customer_id: 1 )
   end
+
 end

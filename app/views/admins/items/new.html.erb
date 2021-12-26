@@ -1,15 +1,19 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 pt-1 mt-1 text-center">
         <div class="item pb-4">
-          <h1><span class="bg-success rounded font-weight-bold" style="color:white">商品新規登録</span></h1>
+          <h1>
+            <span class="bg-success rounded font-weight-bold" style="color:white">商品新規登録</span>
+          </h1>
         </div>
       </div>
     <div class="col-md-2"></div>
   </div>
 
   <%= form_with model:@item, url:admins_items_path, local:true do |f| %>
+
   <div class="row">
     <div class="col-md-2"></div>
       <div class="col-md-8 text-center ml-5 mr-4 pl-1">
@@ -82,11 +86,12 @@
       </div>
     <div class="col-md-2"></div>
   </div>
+
   <% end %>
 </div>
 
-<div>
- <% if @item.errors.any? %>
-　　<%= @item.errors.count %>件未入力項目があります
- <% end %>
-</div>
+　　<div>
+ 　　　<% if @item.errors.any? %>
+　　　<%= @item.errors.count %>件未入力項目があります
+ 　　　<% end %>
+　　</div>

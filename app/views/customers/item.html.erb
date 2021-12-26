@@ -1,27 +1,34 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8 text-center mt-5">
-      <h3><span>注文履歴詳細</span></h3>
+    　<div class="col-md-8 text-center mt-5">
+    　  
+      　<h3>
+          <span>注文履歴詳細</span>
+        </h3>
+        
         <div class="item ml-5 mr-3 mt-4">
           <span class="item pr-2">配送先:</span>
           <span><%= @order.shipping.address %></span>
         </div>
+        
         <div class="item mr-5 pr-5 mt-3">
           <span class="item pr-5">請求金額:</span>
           <span class="item">¥<%= @order.amount %></span>
         </div>
+        
         <% @order_details.each do |order| %>
           <div class="item mt-3">
             <span class="item">商品名:</span>
             <%= order.item.item_name %>
           </div>
+          
           <div class="item">
             <%= order.order_quantity %>個
             <%= order.item.sales_status_make %>
           </div>
         <% end %>
-    </div>
+      </div>
     <div class="col-md-2"></div>
   </div>
 </div>

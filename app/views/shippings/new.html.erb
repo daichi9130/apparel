@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center mt-5">
-      <h1><sapn class="bg-secondary rounded">住所登録</sapn></h1>
+      <h1>
+        <sapn class="bg-secondary rounded">住所登録</sapn>
+      </h1>
       <%= form_with model:@shipping, url:shippings_path, local:true do |f| %>
         <div class="item mt-4"><%= f.text_field :recipient_name, placeholder: "受取人氏名" %></div>
         <div class="item mt-4"><%= f.text_field :postal_code, placeholder: "郵便番号ハイフンなし" %></div>

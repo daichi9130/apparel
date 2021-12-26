@@ -11,6 +11,7 @@ class Item < ApplicationRecord
     validates :genre
   end
 
+　# 　販売ステータス
   def sales_status_text
     if sales_status == true
       "販売中"
@@ -19,10 +20,10 @@ class Item < ApplicationRecord
     end
   end
 
+
   def sales_status_make
     if sales_status == true
       "¥#{(price * 1.1).floor}"
-      # "¥#{(price * 1.1).floor}"
     else
       "SOLD OUT"
     end

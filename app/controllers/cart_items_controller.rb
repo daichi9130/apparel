@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_customer!, except: [:index]
+
   def index
     if customer_signed_in?
       @cart_items = current_customer.cart_items
