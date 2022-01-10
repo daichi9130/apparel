@@ -10,7 +10,7 @@ class Item < ApplicationRecord
     validates :price
     validates :genre
   end
-
+  
   # 販売ステータス
   def sales_status_text
     if sales_status == true

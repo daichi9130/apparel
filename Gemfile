@@ -70,6 +70,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
+gem 'geocoder'
 
 gem 'dotenv-rails'
 group :production do

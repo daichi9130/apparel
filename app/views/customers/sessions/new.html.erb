@@ -6,6 +6,12 @@
          <div class="col-6 text-center">
             <h2 class="mb-4"><span class="bg-secondary rounded">ログイン</span></h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <% if @customer.errors.any? %>
+                <%= @customer.errors.count %>件のエラーが発生しました
+                <% @customer.errors.full_messages.each do |message| %>
+                <%= message %>
+                <% end %>
+              <% end %>
               <div class="field md-3 pb-3">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: '30' %>
               </div>

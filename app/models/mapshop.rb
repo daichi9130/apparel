@@ -1,0 +1,2 @@
+class Mapshop < ApplicationRecord
+end
