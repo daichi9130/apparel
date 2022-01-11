@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root to: 'homes#top'
     resources :items
-    resources :shops, only: [:new, :create]
+    resources :shops, only: [:new, :show, :create]
   end
 
   resources :customers, only: [:show,] do
