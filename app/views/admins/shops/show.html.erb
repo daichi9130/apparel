@@ -1,11 +1,14 @@
 <%= @shop.name %>
 <%= @shop.postal %>
-
 <%= @shop.tell %>
 <%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %>
 
+
+<!--shopとなっている部分の記述は自身の実装に合わせて変えてください。-->
+
 <script type="text/javascript">
   function initMap() {
+// latitude,longitudeから位置を特定
     var test ={lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 15,
@@ -32,16 +35,14 @@
   }
 </script>
 
-<!--#以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
-<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDcgf0lEZQcNQqSor_z911pgALjXDYHxv0&callback=initMap">
-</script>
-<!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+<!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+
+<!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
 <style type="text/css">
-  #map { height: 200px;
+  #map { height: 400px;
          width: 70%;}
 </style>
 
-<!--#mapの表示-->
+<!--mapの表示-->
 <div id="map"></div>
 

@@ -18,7 +18,7 @@ class Admins::ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:mapshop).permit(:name, :postal, :address, :tell, :begin_at, :closed_at)
+    params.require(:mapshop).permit(:name, :postal, :address, :tell, :begin_at, :closed_at, :latitude, :longitude)
   end
 
 
