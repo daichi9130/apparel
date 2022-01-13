@@ -11,43 +11,44 @@
   <%= form_with model:@shop, url:admins_shops_path, local:true do |f| %>
 
   <div class="row">
-    <div class="col-md-12">
-      <%= f.label :店舗名 %>
-      <%= f.text_field :name %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item mr-5 ml-3"><%= f.label :店舗名 %></span>
+      <span class="item"><%= f.text_field :name, size: 25 %></span>
     </div>
   </div>
 
   <div class="row">
-    <div class0="col-md-12">
-      <%= f.label :郵便番号 %>
-      <%= f.text_field :postal %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item mr-5"><%= f.label :郵便番号 %></span>
+      <span class="item"><%= f.text_field :postal, size: 25, placeholder: 'ハイフンなし' %></span>
     </div>
   </div>
 
   <div class="row">
-    <div class0="col-md-12">
-      <%= f.label :住所 %>
-      <%= f.text_field :address %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item mr-5 ml-3 pl-3"><%= f.label :住所 %></span>
+      <span class="item"><%= f.text_field :address, size: 25, placeholder: '東京都新宿区新宿◯-◯-◯' %></span>
     </div>
   </div>
 
   <div class="row">
-    <div class0="col-md-12">
-      <%= f.label :電話番号 %>
-      <%= f.telephone_field :tell %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item mr-5"><%= f.label :電話番号 %></span>
+      <span class="item"><%= f.telephone_field :tell, size: 25, placeholder: 'ハイフンなし' %></span>
     </div>
   </div>
 
   <div class="row">
-    <div class0="col-md-12">
-      <%= f.label :営業時間 %>
-      <%= f.time_select :begin_at %>~<%= f.time_select :closed_at %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item mr-5 pr-3"><%= f.label :営業時間 %></span>
+      <span class="item"><%= f.time_select :begin_at %>~<%= f.time_select :closed_at %></span>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-12">
-      <%= f.submit '登録', class: 'btn btn-success' %>
+    <div class="col-md-12 text-center mt-3">
+      <span class="item pr-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
+      <span class="item"><%= f.submit '登録', class: 'btn btn-success' %></span>
     </div>
   </div>
   <% end %>

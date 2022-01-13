@@ -1,7 +1,58 @@
-<%= @shop.name %>
-<%= @shop.postal %>
-<%= @shop.tell %>
-<%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table border="1" class="mx-auto">
+        <tr>
+          <th width="300px" class="pl-2">店舗名</th>
+          <td width="500px"><%= @shop.name %></td>
+        </tr>
+
+        <tr>
+          <th class="pl-2">郵便番号</th>
+          <td><%= @shop.postal %></td>
+        </tr>
+        <tr>
+          <th valign="top" class="pl-2">住所</th>
+          <td>
+            <%= @shop.address %>
+            <div id="map"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="pl-2">電話番号</th>
+          <td><%= @shop.tell %></td>
+        </tr>
+
+        <tr>
+          <th class="pl-2">営業時間</th>
+          <td><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--shopとなっている部分の記述は自身の実装に合わせて変えてください。-->
@@ -39,10 +90,9 @@
 
 <!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
 <style type="text/css">
-  #map { height: 400px;
-         width: 70%;}
+  #map { height: 200px;
+         /*width: 300%;}*/
 </style>
 
-<!--mapの表示-->
-<div id="map"></div>
+
 
