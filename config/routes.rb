@@ -27,12 +27,13 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :show]
+  resources :stores, only: [:index, :show]
   root to: 'homes#top'
 
   namespace :admins do
     root to: 'homes#top'
     resources :items
-    resources :shops, only: [:new, :show, :create]
+    resources :shops
   end
 
   resources :customers, only: [:show,] do

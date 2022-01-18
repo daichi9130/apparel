@@ -8,6 +8,7 @@
         <div class="item pb-4"><%= link_to 'TOPS 一覧', admins_items_path(genre: 'TOPS'), class:"btn btn-primary mx-auto d-block" %></div>
         <div class="item pb-4"><%= link_to 'TEES 一覧', admins_items_path(genre: 'TEES'), class:"btn btn-primary mx-auto d-block" %></div>
         <div class="item pb-4"><%= link_to 'PANTS 一覧', admins_items_path(genre: 'PANTS'), class:"btn btn-primary mx-auto d-block" %></div>
+        <div class="item pb-4"><%= link_to '店舗情報', admins_shops_path, class: "btn btn-primary mx-auto d-block" %></div>
       </div>
     <div class="col-md-4 pt-4 mt-3">
        <div class="pb-5 mt-5"></div>
@@ -16,9 +17,11 @@
        <div class="pb-5"></div>
        <div class="pb-5"></div>
        <div class="pb-5"></div>
-       <div class="pb-3"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-secondary", :style=>"color:red;"%></div>
+       <div class="pb-5"></div>
+       <div class="pb-5"></div>
+       <div class="pb-4"></div>
+       <div class="pb-1"></div>
+       <div class="item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-secondary", :style=>"color:red;"%></div>
     </div>
   </div>
 </div>
-
-

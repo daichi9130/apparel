@@ -4,7 +4,7 @@
       <table border="1" class="mx-auto">
         <tr>
           <th width="300px" class="pl-2">店舗名</th>
-          <td width="500px"><%= @shop.name %></td>
+          <td width="600px"><%= @shop.name %></td>
         </tr>
 
         <tr>
@@ -28,16 +28,35 @@
           <th class="pl-2">営業時間</th>
           <td><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
         </tr>
-        <caption class="text-right">
-          <span class="item"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %></span>
-          <span class="item ml-3"><%= link_to '編集', edit_admins_shop_path, class: 'btn btn-primary' %></span>
-          <span class="item ml-3"><%= link_to '削除', admins_shop_path(@shop), method: :delete, class: 'btn btn-danger' %></span>
-        </caption>
       </table>
     </div>
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--shopとなっている部分の記述は自身の実装に合わせて変えてください。-->
+<%#= javascript_include_tag "googlemap.js" %>
 <script type="text/javascript">
   function initMap() {
 // latitude,longitudeから位置を特定
@@ -66,14 +85,3 @@
      });
   }
 </script>
-
-<!--以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
-
-<!--表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
-<!--<style type="text/css">-->
-<!--  #map { height: 200px;-->
-<!--         width: 300%;}-->
-<!--</style>-->
-
-
-

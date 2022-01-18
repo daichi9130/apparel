@@ -58,11 +58,11 @@
     <% unless params[:controller].include?("admin") %>
     <footer class="footer fixed-bottom pb-0">
       <div class="card-footer text-muted text-center">
-        <span class="text pb-0 pt-0">
-         <%= link_to 'CONTACT', new_contact_path, :style=>"color:black;" %>
-
-         <h4>@Bald Gray</h4>
-      </span>
+        <div class="text">
+          <span class="item"><%= link_to 'CONTACT', new_contact_path, :style=>"color:black;" %></span>
+          <span class="item ml-3"><%= link_to 'STORE', stores_path, :style=>"color:black;" %></span>
+          <h4 style="color:black;">@Bald Gray</h4>
+      </div>
     </footer>
     <% end %>
 

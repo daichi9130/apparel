@@ -1,0 +1,49 @@
+<% @shop.each do |shop| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <table border="1" class="mx-auto mt-4">
+          <tr>
+            <th width="300px" class="pl-2">店舗名</th>
+            <td width="500px"><%= link_to shop.name, admins_shop_path(shop.id) %></td>
+          </tr>
+
+          <tr>
+            <th class="pl-2">郵便番号</th>
+            <td><%= shop.postal %></td>
+          </tr>
+          <tr>
+            <th valign="top" class="pl-2">住所</th>
+            <td>
+              <%= shop.address %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="pl-2">電話番号</th>
+            <td><%= shop.tell %></td>
+          </tr>
+
+          <tr>
+            <th class="pl-2">営業時間</th>
+            <td><%= shop.begin_at.strftime("%H:%M") %>~<%= shop.closed_at.strftime("%H:%M") %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="item text-right mt-4 mr-5"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-success' %></span>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+

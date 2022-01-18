@@ -20,7 +20,7 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
-  
+
   $("#images").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'slide',
