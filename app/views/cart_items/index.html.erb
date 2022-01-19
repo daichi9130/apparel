@@ -6,7 +6,7 @@
         <caption>
           <h3>ショッピングカート</h3>
         </caption>
-
+      <% if @cart_items.present? %>
         <table align="center" border="1" style="border-collapse: collapse" class="w-75">
           <thead>
             <tr>
@@ -39,6 +39,12 @@
             <%= link_to '購入手続きへ', new_order_path, class: "btn btn-secondary" %>
           </caption>
         </table>
+      <% else %>
+      　<div class="item">
+      　   <h4>カートが空です</h4>
+　　　　　<p>商品が追加されると、ここに表示されます。</p>
+      　</div>
+      <% end %>
 
       </div>
     </div>
