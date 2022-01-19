@@ -1,8 +1,7 @@
 class CustomersController < ApplicationController
 
   def show
-    @customers = Customer.all
-    @orders = Order.all
+    @orders = current_customer.orders.all
     @shippings = current_customer.shippings.all
   end
 
