@@ -6,8 +6,11 @@ class ShippingsController < ApplicationController
 
   def create
     @shipping = current_customer.shippings.new(shipping_params)
-    @shipping.save
-    redirect_to customer_path(current_customer)
+    if @shipping.save
+      redirect_to customer_path(current_customer)
+    else
+      render :new
+    end
   end
 
   def destroy
