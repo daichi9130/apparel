@@ -13,12 +13,17 @@ class CartItemsController < ApplicationController
 
   def create
     @cart_item = current_customer.cart_items.new(cart_items_params)
-    if @cart_item.save
-      redirect_to cart_items_path
+		if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
+		  cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+		  cart_item.quantity += params[:cart_item][:quantity].to_i
+		  cart_item.save
+			redirect_to cart_items_path
+		elsif @cart_item.save
+			redirect_to cart_items_path
     else
       @item = Item.find(@cart_item.item_id)
       render template: "items/show"
-    end
+		end
   end
 
   def update
