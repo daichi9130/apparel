@@ -34,7 +34,7 @@ class CartItemsController < ApplicationController
     @cart_item.update(cart_items_params)
     @cart_item = CartItem.find(params[:id])
     @total = current_customer.cart_items.includes(:item).sum('items.price * cart_items.quantity')
-    @total = (@total * 1.1).floor
+    @total = (@total * 1.1).floor.to_s(:delimited)
   end
 
   def destroy

@@ -5,7 +5,7 @@ class CartItem < ApplicationRecord
 
   def sum_of_price(int_flg = false)
     # もしtrueなら¥を削除して数値として変換後に計算する
-    ((item.price*quantity) * 1.1).floor
+    ((item.price*quantity) * 1.1).floor.to_s(:delimited)
   end
 
   validates :size, presence: true
