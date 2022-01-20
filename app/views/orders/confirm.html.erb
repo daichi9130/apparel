@@ -33,6 +33,8 @@
         <%= f.hidden_field :postage, :value => 500 %>
         <%= f.hidden_field :payment, :value => @payment %>
         <%= f.hidden_field :shipping_id, :value => @shipping.id %>
+        <%= f.hidden_field :address, :value => @shipping.address %>
+        <%= f.hidden_field :name, :value => @shipping.recipient_name %>
         <%= f.submit '注文完了', name: nil %>
       <% end %>
     </div>

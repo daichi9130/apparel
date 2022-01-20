@@ -29,7 +29,7 @@
               <td>
                 <!--部分テンプレート--><%= render 'cart_items/list', cart_item: cart_item %>
               </td>
-              <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price %></div></td>
+              <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price.to_s(:delimited) %></div></td>
             </tr>
             <% end %>
           </tbody>

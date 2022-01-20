@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:shipping_id, :payment, :customer_id, :cart_item_id).merge(customer_id: current_customer.id)
+    params.permit(:shipping_id, :payment, :customer_id, :cart_item_id, :address, :name).merge(customer_id: current_customer.id)
   end
 
 end
