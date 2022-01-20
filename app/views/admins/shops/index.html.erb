@@ -6,7 +6,7 @@
         <table border="1" class="mx-auto mt-4">
           <tr>
             <th width="300px" class="pl-2">店舗名</th>
-            <td width="500px"><%= link_to shop.name, admins_shop_path(shop.id) %></td>
+            <td width="500px"><%= link_to shop.name, admins_shop_path(shop.id), data: {"turbolinks" => false} %></td>
           </tr>
 
           <tr>
