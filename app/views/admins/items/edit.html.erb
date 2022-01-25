@@ -1,96 +1,59 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="item pb-4">
-          <h1><span class="bg-primary rounded font-weight-bold" style="color:white">商品編集</span></h1>
+    <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div id="box5" class="pt-2 pl-5">
+          <h2>商品編集</h2>
         </div>
+      <div id="box4" class="bg-light">
+        <%= form_with model:@item, url:admins_item_path(@item.id), local:true, method: :patch do |f| %>
+          <table border="1">
+            <tr>
+              <th id="text1" class="pt-2 pl-2"><%= f.label :商品画像 %></th>
+              <td id="text2" class="pl-2"><%= f.attachment_field :image %></td>
+            </tr>
+            <tr>
+              <th class="pt-2 pl-2"><%= f.label :商品名 %></th>
+              <td class="pl-2"><%= f.text_field :item_name, size: 40 %></td>
+            </tr>
+            <tr>
+              <th class="pt-2 pl-2"><%= f.label :税抜価格 %></th>
+              <td class="pl-2"><%= f.text_field :price %> 円</td>
+            </tr>
+            <tr>
+              <th class="pt-2 pl-2"><%= f.label :ジャンル %></th>
+              <td class="pl-2"><%= f.select :genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい", :size => "100*30" %></td>
+            </tr>
+            <tr>
+              <th class="pt-2 pl-2"><%= f.label :販売ステータス %></th>
+              <td class="pt-2 pl-2">
+                <span>
+                  <%= f.label :sales_status, '販売中' %>
+                  <%= f.radio_button :sales_status, '1', checked: @item.sales_status ? true : false %>
+                </span>
+                <span class="ml-4">
+                  <%= f.label :sales_status, '販売停止' %>
+                  <%= f.radio_button :sales_status, '0', checked: @item.sales_status ? false : true %>
+                </span>
+              </td>
+            </tr>
+          </table>
+          <div class="box text-center mt-4">
+            <span class="item pr-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
+            <span class="item"><%= f.submit '変更', class: 'btn btn-info' %></span>
+          </div>
+        <% end %>
       </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <%= form_with model:@item, url:admins_item_path(@item.id), local:true, method: :patch do |f| %>
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center ml-5 mr-4 pl-1">
-        <div class="box pb-4 ml-3 mr-3">
-          <span class="item ml-5 pl-5 mr-3"><%= f.label :商品画像 %></span>
-          <span class="item mr-5"><%= f.attachment_field:image %></span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="box pb-4">
-          <span class="item pr-3"><%= f.label :商品名 %></span>
-          <span class="item"><%= f.text_field:item_name %></span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="box pb-4">
-          <span class="item pr-3 pl-1"><%= f.label :税抜価格 %></span>
-          <span class="item"><%= f.text_field:price, :style=>"text-align:right" %> 円</span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="box pb-4 mr-5 ml-3">
-          <span class="item pr-3 pl-3"><%= f.label :ジャンル %></span>
-          <span class="item mr-5"><%= f.select:genre, [["JACKETS","JACKETS"],["TOPS","TOPS"],["TEES","TEES"],["PANTS","PANTS"]], include_blank: "選択して下さい", :size => "100*30" %></span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center mr-5">
-        <div class="box pb-4 mr-5 pr-5 ml-3">
-          <span class="item mr-2 pr-2"><%= f.label :販売ステータス %></span>
-          <span class="item">
-            <%= f.label :sales_status, '販売中' %>
-            <%= f.radio_button :sales_status, '1', checked: @item.sales_status ? true : false %>
-          </span>
-          <span class="item pl-3">
-            <%= f.label :sales_status, '販売停止' %>
-            <%= f.radio_button :sales_status, '0', checked: @item.sales_status ? false : true %>
-          </span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="box pb-4 ml-5 pl-5 pr-5">
-          <span class="item pr-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
-          <span class="item pb-5 pl-4 mr-5 pr-3"><%= f.submit '変更', class: 'btn btn-info' %></span>
-        </div>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-  <% end %>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <% if @item.errors.any? %>
-        <%= @item.errors.count %>件未入力項目があります
-      <% end %>
     </div>
   </div>
 </div>
+
+    <!--<div>-->
+    <!--  <% if @item.errors.any? %>-->
+    <!--    <%= @item.errors.count %>件未入力項目があります-->
+    <!--  <% end %>-->
+    <!--</div>-->
+
 
 
 
