@@ -1,24 +1,36 @@
 <div class="container">
-  <div class="row mt-5"></div>
-  <div class="row mt-4"></div>
-    <div class="row">
-      <div class="col-3"></div>
-         <div class="col-6 text-center">
-            <h2 class="mb-4"><span class="bg-secondary rounded font-weight-bold">管理者ログイン</span></h2>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field mb-3">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: '30', placeholder: "メールアドレス" %>
+  <div class="row">
+    <div class="col-md-1"></div>
+      <div class="col-10 text-center mt-5">
+        <div id="box3" class="bg-light mx-auto">
+          <div id="box2" class="text-left pt-2 pl-4">
+            <h3>管理者ログイン</h3>
+          </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <font color="red">
+          　   <% if @admin.errors.any? %>
+            　   <%= @admin.errors.count %>件のエラーが発生しました
+            　   <% @admin.errors.full_messages.each do |message| %>
+            　   <%= message %>
+            　   <% end %>
+          　   <% end %>
+            </font>
+              <div class="field text-left pl-4">
+                <strong><%= f.label :メールアドレス %></strong>
+                <div><%= f.email_field :email, autofocus: true, autocomplete: "email", size: '70' %></div>
               </div>
-              <div class="field mb-3">
-                <%= f.password_field :password, autocomplete: "current-password", size: '30', placeholder: "パスワード" %>
+              <div class="field text-left pl-4 mt-3">
+                <strong><%= f.label :パスワード %></strong>
+                <div><%= f.password_field :password, autocomplete: "current-password", size: '70' %></div>
               </div>
-              <div class="actions mt-3">
+              <div class="actions text-left pl-4 mt-4">
                 <%= f.submit "ログイン" %>
               </div>
             <% end %>
-         </div>
-      <div class="col-3"></div>
-    </div>
+        </div>
+      </div>
+    <div class="col-1"></div>
+  </div>
 </div>
 
 
