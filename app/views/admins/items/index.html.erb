@@ -1,24 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h1 class=" mb-5">ジャンル一覧</h1>
-        <table align="center">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center">
+      <div id="box8" class="pt-2 pl-5 text-left">
+        <h2>ジャンル一覧</h2>
+      </div>
+      <div id="box9" class="bg-light">
+        <table border="1">
           <tr>
-           <th class="item">商品ID</th>
-           <th class="item pl-5">商品名</th>
-           <th class="item pl-5">税抜価格</th>
-           <th class="item pl-5">販売ステータス</th>
+           <th width="100px" height="40px">商品ID</th>
+           <th width="350px">商品名</th>
+           <th width="100px">税抜価格</th>
+           <th width="150px">販売ステータス</th>
           </tr>
           <% @items.each do |item| %>
             <tr>
-              <td style="border:none;" class="item pt-4"><%= item.id %></td>
-              <td style="border:none;" class="item pl-5 pt-4"><%= link_to item.item_name, admins_item_path(item.id) %></td>
-              <td style="border:none;" class="item pl-5 pt-4"><%= item.price.to_s(:delimited) %></td>
-              <td style="border:none;" class="item pl-5 pt-4"><%= item.sales_status_text %></td>
+              <td width="100px" height="40px"><%= item.id %></td>
+              <td class="item"><%= link_to item.item_name, admins_item_path(item.id) %></td>
+              <td class="item"><%= item.price.to_s(:delimited) %> 円</td>
+              <td class="item"><%= item.sales_status_text %></td>
             </tr>
           <% end %>
             <caption class="text-center mt-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></caption>
         </table>
+      </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>

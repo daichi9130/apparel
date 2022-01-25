@@ -1,61 +1,49 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-
-      <h1 class="mb-5">
-        <span class="bg-secondary rounded font-weight-bold" style="color:white">商品詳細</span>
-      </h1>
-
-        <table style="border:none;" align="center">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center">
+      <div id="box8" class="pt-2 pl-5 text-left">
+        <h2>商品詳細</h2>
+      </div>
+      <div id="box10" class="bg-light">
+        <table>
           <tr>
-            <th rowspan="5">
+            <td>
               <%= attachment_image_tag @item, :image, :fill, 370, 400, format: 'jpeg' %>
-            </th>
-            <td style="border:none;">
-              <div class="box pr-4 ml-5 pl-5">
-                <span class="item mr-4 pl-4 ml-1">商品名:</span>
-                <span class="item"><%= @item.item_name %></span>
-              </div>
             </td>
-          </tr>
-          <tr>
-            <td style="border:none;">
-              <div class="box ml-5 pl-5 mr-5">
-                <span class="item mr-4">ジャンル:</span>
-                <span class="item"><%= @item.genre %></span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="border:none;">
-              <div class="box ml-5 pl-2">
-                <span class="item mr-4">税抜価格:</span>
-                <span class="item"><%= @item.price.to_s(:delimited) %>円</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="border:none;">
-              <div class="box">
-                <span class="item mr-4">販売ステータス:</span>
-                <span class="item"><%= @item.sales_status_text %></span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="border:none;">
-              <div class="box ml-5 pl-5 mr-2">
-                <span class="item"><%= link_to '編集', edit_admins_item_path(@item), class: 'btn btn-info' %></span>
-                <span class="item pl-4"><%= link_to '削除', admins_item_path(@item), method: :delete, class: 'btn btn-danger' %></span>
-              </div>
+            <td>
+              <table>
+                <tr>
+                  <th width="200px" height="90px">商品名</th>
+                  <td width="200px"><%= @item.item_name %></td>
+                </tr>
+                <tr>
+                  <th height="80px">ジャンル</th>
+                  <td><%= @item.genre %></td>
+                </tr>
+                <tr>
+                  <th height="80px">税抜価格</th>
+                  <td><%= @item.price.to_s(:delimited) %>円</td>
+                </tr>
+                <tr>
+                  <th height="80px">販売ステータス</th>
+                  <td class="mb-5"><%= @item.sales_status_text %></td>
+                </tr>
+                <tr>
+                  <th height="80px">
+                    <%= link_to '編集', edit_admins_item_path(@item), class: 'btn btn-info' %>
+                    <%= link_to '削除', admins_item_path(@item), method: :delete, class: 'btn btn-danger' %>
+                  </th>
+                  <td>
+                    <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
-
-        <div class="box mt-5">
-          <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
-        </div>
-
+      </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
