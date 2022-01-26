@@ -1,45 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-md-1"></div>
-      <div class="col-10 text-center mt-5">
-        <div id="box3" class="bg-light mx-auto">
-          <div id="box2" class="text-left pt-2 pl-4">
-            <h3>管理者ログイン</h3>
-          </div>
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <font color="red">
-          　   <% if @admin.errors.any? %>
-            　   <%= @admin.errors.count %>件のエラーが発生しました
-            　   <% @admin.errors.full_messages.each do |message| %>
-            　   <%= message %>
-            　   <% end %>
-          　   <% end %>
-            </font>
-              <div class="field text-left pl-4">
-                <strong><%= f.label :メールアドレス %></strong>
-                <div><%= f.email_field :email, autofocus: true, autocomplete: "email", size: '70' %></div>
-              </div>
-              <div class="field text-left pl-4 mt-3">
-                <strong><%= f.label :パスワード %></strong>
-                <div><%= f.password_field :password, autocomplete: "current-password", size: '70' %></div>
-              </div>
-              <div class="actions text-left pl-4 mt-4">
-                <%= f.submit "ログイン" %>
-              </div>
-            <% end %>
-        </div>
+    <div class="col-10 mt-5">
+      <div id="login" class="pt-2 pl-4">
+        <h3>管理者ログイン</h3>
       </div>
+      <div id="logins" class="bg-light">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <strong><%= f.label :メールアドレス %></strong>
+            <div><%= f.email_field :email, autofocus: true, autocomplete: "email", size: '60' %></div>
+          </div>
+          <div class="field mt-3">
+            <strong><%= f.label :パスワード %></strong>
+            <div><%= f.password_field :password, autocomplete: "current-password", size: '60' %></div>
+          </div>
+          <div class="actions mt-4">
+            <%= f.submit "ログイン" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="col-1"></div>
   </div>
 </div>
 
 
-<%#= render "admins/shared/links" %>
 
 
-<!--<%# if devise_mapping.rememberable? %>-->
-  <!--  <div class="field">-->
-  <!--    <%#= f.check_box :remember_me %>-->
-  <!--    <%#= f.label :remember_me %>-->
-  <!--  </div>-->
-  <!--<%# end %>-->
+
+
