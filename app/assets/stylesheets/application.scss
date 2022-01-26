@@ -54,30 +54,20 @@
   height: 300px;
  }
 
-#box1 {
-  width: 650px;
-  height: 430px;
- }
-
- #box2 {
-  background-color:#eeeeee;
-  width: 650px;
-  height: 50px;
-  margin-top: auto;
- }
-
 #box3 {
   width: 650px;
   height: 330px;
+  font-size: 16px;
  }
 
  #box4 {
   width: 700px;
-  height: 360px;
   margin: auto;
-  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
+  font-size: 16px;
  }
 
  #box5 {
@@ -85,18 +75,6 @@
   height: 50px;
   margin-left: 110px;
   background-color:#eeeeee;
- }
-
- #box6 {
-  background-color:#eeeeee;
-  width: 650px;
-  height: 50px;
-  margin-top: auto;
- }
-
- #box7 {
-  width: 650px;
-  height: 330px;
  }
 
   #box8 {
@@ -113,6 +91,7 @@
   padding-top: 30px;
   padding-left: 50px;
   padding-right: 50px;
+  font-size: 16px;
  }
 
   #box10 {
@@ -121,7 +100,7 @@
   margin: auto;
   padding-top: 30px;
   padding-left: 50px;
-  padding-right: 50px;
+  font-size: 16px;
  }
 
 
@@ -137,3 +116,8 @@
  #text2 {
   width: 500px;
  }
+
+.container {
+  display: block;
+  font-size: 0;
+}

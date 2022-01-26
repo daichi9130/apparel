@@ -9,8 +9,8 @@
       <div class="item mt-3"><%= @item.sales_status_make %></div>
       <%= form_with model:@cart_item, url:{controller: 'cart_items', action: 'create'}, local:true do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
-          <div class="item mt-3"><%= f.select :size, [["S","S"],["M","M"],["L","L"]], include_blank: "サイズ" %></div>
-          <div class="item mt-3"><%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "数量" %></div>
+          <div class="item mt-3" style="font-size: 16px;"><%= f.select :size, [["S","S"],["M","M"],["L","L"]], include_blank: "サイズ" %></div>
+          <div class="item mt-3" style="font-size: 16px;"><%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "数量" %></div>
           <div class="item mt-5"><%= f.submit 'カートに入れる', disabled: !@item.sales_status, class: "btn btn-dark" %></div>
       <% end %>
       <% if @cart_item.errors.any? %>
