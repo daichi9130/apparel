@@ -1,49 +1,46 @@
-<% @shop.each do |shop| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <table border="1" class="mx-auto mt-4">
-          <tr>
-            <th width="300px" class="pl-2">店舗名</th>
-            <td width="500px"><%= link_to shop.name, admins_shop_path(shop.id), data: {"turbolinks" => false} %></td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">郵便番号</th>
-            <td><%= shop.postal %></td>
-          </tr>
-          <tr>
-            <th valign="top" class="pl-2">住所</th>
-            <td>
-              <%= shop.address %>
-            </td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">電話番号</th>
-            <td><%= shop.tell %></td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">営業時間</th>
-            <td><%= shop.begin_at.strftime("%H:%M") %>~<%= shop.closed_at.strftime("%H:%M") %></td>
-          </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div id="box8" class="pt-2 pl-5 text-left">
+        <h2>店舗情報一覧</h2>
+      </div>
+      <div id="box9" class="bg-light">
+        <table border="1">
+          <% @shop.each do |shop| %>
+            <tr>
+              <th width="300px" class="pl-2">店舗名</th>
+              <td width="500px"><%= link_to shop.name, admins_shop_path(shop.id), data: {"turbolinks" => false} %></td>
+            </tr>
+            <tr>
+              <th class="pl-2">郵便番号</th>
+              <td><%= shop.postal %></td>
+            </tr>
+            <tr>
+              <th valign="top" class="pl-2">住所</th>
+              <td>
+                <%= shop.address %>
+              </td>
+            </tr>
+            <tr>
+              <th class="pl-2">電話番号</th>
+              <td><%= shop.tell %></td>
+            </tr>
+            <tr>
+              <th class="pl-2">営業時間</th>
+              <td><%= shop.begin_at.strftime("%H:%M") %>~<%= shop.closed_at.strftime("%H:%M") %></td>
+            </tr>
+          <% end %>
         </table>
       </div>
-      <div class="col-md-2">
+      <div class="text-right mr-5 pr-5 mt-4">
+        <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
       </div>
     </div>
+    <div class="col-md-1">
   </div>
-<% end %>
-
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class="item text-right mt-4 mr-5"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
-  </div>
-  <div class="col-md-3"></div>
 </div>
+
 
 
 
