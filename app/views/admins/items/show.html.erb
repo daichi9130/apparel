@@ -32,16 +32,18 @@
                 <tr>
                   <th height="80px">
                     <%= link_to '編集', edit_admins_item_path(@item), class: 'btn btn-info' %>
-                    <%= link_to '削除', admins_item_path(@item), method: :delete, class: 'btn btn-danger' %>
                   </th>
                   <td>
-                    <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
+                    <%= link_to '削除', admins_item_path(@item), method: :delete, class: 'btn btn-danger' %>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
         </table>
+      </div>
+      <div class="text-right mr-5 pr-3 mt-4">
+        <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
       </div>
     </div>
     <div class="col-md-1"></div>

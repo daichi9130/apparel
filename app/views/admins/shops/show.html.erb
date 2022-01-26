@@ -1,40 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 mt-5">
-      <table border="1" class="mx-auto">
-        <tr>
-          <th width="300px" class="pl-2">店舗名</th>
-          <td width="500px"><%= @shop.name %></td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">郵便番号</th>
-          <td><%= @shop.postal %></td>
-        </tr>
-        <tr>
-          <th valign="top" class="pl-2">住所</th>
-          <td>
-            <%= @shop.address %>
-            <div id="map"></div>
-          </td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">電話番号</th>
-          <td><%= @shop.tell %></td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">営業時間</th>
-          <td><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
-        </tr>
-        <caption class="text-right">
-          <span class="item"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
-          <span class="item ml-3"><%= link_to '編集', edit_admins_shop_path, class: 'btn btn-info' %></span>
-          <span class="item ml-3"><%= link_to '削除', admins_shop_path(@shop), method: :delete, class: 'btn btn-danger' %></span>
-        </caption>
-      </table>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div id="box8" class="pt-2 pl-5 text-left">
+        <h2>店舗詳細</h2>
+      </div>
+      <div id="box9" class="bg-light">
+        <table border="1">
+          <tr>
+            <th width="200px" class="pl-2">店舗名</th>
+            <td width="500px"><%= @shop.name %></td>
+          </tr>
+          <tr>
+            <th class="pl-2">郵便番号</th>
+            <td><%= @shop.postal %></td>
+          </tr>
+          <tr>
+            <th valign="top" class="pl-2">住所</th>
+            <td>
+              <%= @shop.address %>
+              <div id="map"></div>
+            </td>
+          </tr>
+          <tr>
+            <th class="pl-2">電話番号</th>
+            <td><%= @shop.tell %></td>
+          </tr>
+          <tr>
+            <th class="pl-2">営業時間</th>
+            <td><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
+          </tr>
+          <caption class="text-right">
+            <span class="item ml-3"><%= link_to '編集', edit_admins_shop_path, class: 'btn btn-info w-25' %></span>
+            <span class="item ml-3"><%= link_to '削除', admins_shop_path(@shop), method: :delete, class: 'btn btn-danger w-25' %></span>
+          </caption>
+        </table>
+      </div>
+      <div class="text-right mr-5 pr-3 mt-4">
+        <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
+      </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 

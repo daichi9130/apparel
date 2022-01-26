@@ -35,8 +35,11 @@ class Admins::ShopsController < ApplicationController
 
   def update
     @shop = Mapshop.find(params[:id])
-    @shop.update(shop_params)
-    redirect_to admins_shop_path(@shop.id)
+    if @shop.update(shop_params)
+      redirect_to admins_shop_path(@shop.id)
+    else
+      render :edit
+    end
   end
 
   private

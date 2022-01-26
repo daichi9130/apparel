@@ -1,55 +1,50 @@
 <div class="container">
-
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>
-        <span class="bg-success rounded font-weight-bold" style="color:white">店舗情報編集</span>
-      </h1>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div id="box1" class="pt-2 pl-5">
+        <h2>店舗編集</h2>
+      </div>
+    <div id="box2" class="bg-light">
+      <div class="text-right">
+        <font color="red">
+ 　　     　<% if @shop.errors.any? %>
+　　　      <%= @shop.errors.count %>件未入力項目があります
+ 　　     　<% end %>
+ 　    　</font>
+      </div>
+      <%= form_with model:@shop, url:admins_shop_path(@shop.id), local:true, method: :patch do |f| %>
+        <table border="1">
+          <tr>
+            <th id="text1" class="pt-2 pl-2"><%= f.label :店舗名 %></th>
+            <td id="text2" class="pl-2"><%= f.text_field :name, size: 25 %></td>
+          </tr>
+          <tr>
+            <th class="pt-2 pl-2"><%= f.label :郵便番号 %></th>
+            <td class="pl-2"><%= f.text_field :postal, size: 25, placeholder: 'ハイフンなし' %></td>
+          </tr>
+          <tr>
+            <th class="pt-2 pl-2"><%= f.label :住所 %></th>
+            <td class="pl-2"><%= f.text_field :address, size: 25, placeholder: '東京都新宿区新宿◯-◯-◯' %></td>
+          </tr>
+          <tr>
+            <th class="pt-2 pl-2"><%= f.label :電話番号 %></th>
+            <td class="pl-2"><%= f.telephone_field :tell, size: 25, placeholder: 'ハイフンなし' %></td>
+          </tr>
+          <tr>
+            <th class="pt-2 pl-2"><%= f.label :営業時間 %></th>
+            <td class="pl-2"><%= f.time_select :begin_at %>~<%= f.time_select :closed_at %></td>
+          </tr>
+        </table>
+        <div class="box text-center mt-4">
+          <span class="item"><%= f.submit '変更', class: 'btn btn-info w-25' %></span>
+        </div>
+      <% end %>
     </div>
-  </div>
-
-
-<%= form_with model:@shop, url:admins_shop_path(@shop.id), local:true, method: :patch do |f| %>
-<div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item mr-5 ml-3"><%= f.label :店舗名 %></span>
-      <span class="item"><%= f.text_field :name, size: 25 %></span>
+      <div class="text-right mr-4 mt-4">
+        <%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %>
+      </div>
     </div>
+    <div class="col-md-2"></div>
   </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item mr-5"><%= f.label :郵便番号 %></span>
-      <span class="item"><%= f.text_field :postal, size: 25, placeholder: 'ハイフンなし' %></span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item mr-5 ml-3 pl-3"><%= f.label :住所 %></span>
-      <span class="item"><%= f.text_field :address, size: 25, placeholder: '東京都新宿区新宿◯-◯-◯' %></span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item mr-5"><%= f.label :電話番号 %></span>
-      <span class="item"><%= f.telephone_field :tell, size: 25, placeholder: 'ハイフンなし' %></span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item mr-5 pr-3"><%= f.label :営業時間 %></span>
-      <span class="item"><%= f.time_select :begin_at %>~<%= f.time_select :closed_at %></span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 text-center mt-3">
-      <span class="item pr-4"><%= link_to 'Topへ', admins_root_path, class: 'btn btn-primary' %></span>
-      <span class="item"><%= f.submit '変更', class: 'btn btn-info' %></span>
-    </div>
-  </div>
-<% end %>
 </div>
