@@ -8,10 +8,10 @@
       <div id="box2" class="bg-light">
         <div class="text-right">
           <font color="red">
- 　　     　<% if @item.errors.any? %>
-　　　      <%= @item.errors.count %>件未入力項目があります
- 　　     　<% end %>
- 　    　</font>
+ 　　       　<% if @item.errors.any? %>
+　　　        <%= @item.errors.count %>件未入力項目があります
+ 　　       　<% end %>
+ 　      　</font>
         </div>
         <%= form_with model:@item, url:admins_items_path, local:true do |f| %>
           <table border="1">

@@ -11,8 +11,11 @@ class Admins::ShopsController < ApplicationController
 
   def create
     @shop = Mapshop.new(shop_params)
-    @shop.save
-    redirect_to admins_shop_path(@shop.id)
+    if @shop.save
+      redirect_to admins_shop_path(@shop.id)
+    else
+      render :new
+    end
   end
 
   def destroy

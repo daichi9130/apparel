@@ -2,10 +2,17 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <div id="box1" class="pt-2 pl-5">
+      <div id="box4" class="pt-2 pl-5">
         <h2>店舗情報登録</h2>
       </div>
-　　　<div id="box2" class="bg-light">
+　　　<div id="box5" class="bg-light">
+　　　  <div class="text-right">
+          <font color="red">
+ 　　       　<% if @shop.errors.any? %>
+　　　        <%= @shop.errors.count %>件未入力項目があります
+ 　　       　<% end %>
+ 　      　</font>
+        </div>
         <%= form_with model:@shop, url:admins_shops_path, local:true do |f| %>
           <table border="1">
             <tr>
@@ -39,11 +46,4 @@
     <div class="col-md-1"></div>
   </div>
 </div>
-
-
-<!--　　<div>-->
-<!-- 　　　<% if @shop.errors.any? %>-->
-<!--　　　<%= @shop.errors.count %>件未入力項目があります-->
-<!-- 　　　<% end %>-->
-<!--　　</div>-->
 
