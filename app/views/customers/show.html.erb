@@ -17,9 +17,11 @@
           <% if @orders.present? %>
             <h5 class="text-center mt-4">
               <% @orders.each do |order| %>
-                <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
-                  <%= l order.created_at %>
-                <% end %>
+                <div class="pb-3">
+                  <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
+                    <%= l order.created_at %>
+                  <% end %>
+                </div>
               <% end %>
             </h5>
           <% else %>
