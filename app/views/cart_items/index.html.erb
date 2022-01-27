@@ -1,51 +1,45 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center mt-4">
-      <div class="box">
-
+      <div id="acount">
         <caption>
           <h3>ショッピングカート</h3>
         </caption>
-      <% if @cart_items.present? %>
-        <table align="center" border="1" style="border-collapse: collapse" class="w-75">
-          <thead>
+        <% if @cart_items.present? %>
+          <table align="center" border="1" style="border-collapse: collapse" class="w-75">
             <tr>
               <th colspan="2">商品名</th>
               <th>価格</th>
               <th>数量</th>
               <th>合計</th>
             </tr>
-          </thead>
-          <tbody>
             <% @cart_items.each do |cart_item| %>
-            <tr>
-              <td><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150 %></td>
-              <td>
-                <div class="item"><%= cart_item.item.item_name %></div>
-                <div class="item">サイズ:<%= cart_item.size %></div>
-                <div class="item"><%= link_to '削除', cart_item_path(cart_item.id), method: :delete %></div>
-              </td>
-              <td><%= cart_item.item.sales_status_make %></td>
-              <td>
-                <!--部分テンプレート--><%= render 'cart_items/list', cart_item: cart_item %>
-              </td>
-              <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price.to_s(:delimited) %></div></td>
-            </tr>
+              <tr>
+                <td><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150 %></td>
+                <td>
+                  <div><%= cart_item.item.item_name %></div>
+                  <div>サイズ:<%= cart_item.size %></div>
+                  <div><%= link_to '削除', cart_item_path(cart_item.id), method: :delete %></div>
+                </td>
+                <td><%= cart_item.item.sales_status_make %></td>
+                <td>
+                  <%= render 'cart_items/list', cart_item: cart_item %><!--部分テンプレート-->
+                </td>
+                <td><div id="cart_item_price_<%= cart_item.id %>">¥<%= cart_item.sum_of_price.to_s(:delimited) %></div></td>
+              </tr>
             <% end %>
-          </tbody>
-          <caption>小計 <span id="cart_price_total">¥<%= @total.round.to_s(:delimited)%></span></caption>
-          <caption>
-            <%= link_to '買い物を続ける', root_path, class: "btn btn-dark" %>
-            <%= link_to '購入手続きへ', new_order_path, class: "btn btn-secondary" %>
-          </caption>
-        </table>
-      <% else %>
-      　<div class="item">
-      　   <h4>カートが空です</h4>
-　　　　　<p>商品が追加されると、ここに表示されます。</p>
-      　</div>
-      <% end %>
-
+            <caption>小計 <span id="cart_price_total">¥<%= @total.round.to_s(:delimited)%></span></caption>
+            <caption>
+              <%= link_to '買い物を続ける', root_path, class: "btn btn-dark" %>
+              <%= link_to '購入手続きへ', new_order_path, class: "btn btn-secondary" %>
+            </caption>
+          </table>
+        <% else %>
+        　<div class="item">
+        　   <h4>カートが空です</h4>
+  　　　　　　　　<p>商品が追加されると、ここに表示されます。</p>
+        　</div>
+        <% end %>
       </div>
     </div>
   </div>

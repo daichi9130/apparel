@@ -1,42 +1,39 @@
-
-
-
-
-
 <div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-5">
-      <div class="item ml-5 pl-2 mt-5">
-        <h3>注文履歴</h3>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class=" text-center mt-5">
+        <h1>注文履歴</h1>
       </div>
-      <table border="1" class="mx-auto">
-        <tr>
-          <th width="130px">配送先</th>
-          <td width="300px"><%= @order.address %></td>
-        </tr>
-        <tr>
-          <th>請求金額</th>
-          <td>¥<%= @order.amount %></td>
-        </tr>
-        <% @order_details.each do |order| %>
+      <div id="order2">
+        <table>
           <tr>
-            <th>商品金額</th>
-            <td>
-              <%= order.order_quantity %>個
-              <%= order.item.sales_status_make %>
-            </td>
+            <th width="200px" class="pt-4">配送先</th>
+            <td width="300px" class="pt-4"><%= @order.address %></td>
           </tr>
           <tr>
-            <th valign="top">商品名</th>
-            <td>
-              <%= order.item.item_name %>
-              <div><%= attachment_image_tag order.item, :image, :fill, 200, 200 %></div>
-            </td>
+            <th class="pt-4">請求金額</th>
+            <td class="pt-4">¥<%= @order.amount %></td>
           </tr>
-        <% end %>
-      </table>
+          <% @order_details.each do |order| %>
+            <tr>
+              <th class="pt-4">商品金額</th>
+              <td class="pt-4">
+                <%= order.order_quantity %>個
+                <%= order.item.sales_status_make %>
+              </td>
+            </tr>
+            <tr>
+              <th valign="top" class="pt-4">商品名</th>
+              <td class="pt-4">
+                <%= order.item.item_name %>
+                <div><%= attachment_image_tag order.item, :image, :fill, 200, 200 %></div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
   </div>
 </div>

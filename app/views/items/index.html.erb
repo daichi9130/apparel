@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center ml-3">
-    　<div style="display: flex; flex-wrap: wrap;">
-        <% @items.each do |item| %>
-          <%= link_to item_path(item.id), :style=>"color:black;" do %>
-          <%= attachment_image_tag item, :image, :fill, 270, 240 %><br/>
-          <%= item.item_name %><br/>
-          <%= item.sales_status_make %>
+      <div id="acount">
+      　<div style="display: flex; flex-wrap: wrap;">
+          <% @items.each do |item| %>
+            <%= link_to item_path(item.id), :style=>"color:black;" do %>
+            <%= attachment_image_tag item, :image, :fill, 270, 240 %><br/>
+            <%= item.item_name %><br/>
+            <%= item.sales_status_make %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

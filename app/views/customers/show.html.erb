@@ -15,11 +15,13 @@
       <h4 class="text-center mt-4">注文履歴</h4>
         <div id="acount">
           <% if @orders.present? %>
-            <% @orders.each do |order| %>
-              <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
-                <%= l order.created_at %>
+            <h5 class="text-center mt-4">
+              <% @orders.each do |order| %>
+                <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
+                  <%= l order.created_at %>
+                <% end %>
               <% end %>
-            <% end %>
+            </h5>
           <% else %>
             <p class="text-center mt-4">注文履歴はございません</p>
           <% end %>

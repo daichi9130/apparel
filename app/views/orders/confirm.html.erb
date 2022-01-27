@@ -2,41 +2,43 @@
   <div class="row">
     <div class="col-12 mt-3">
       <h1>注文情報確認</h1>
-      <table align="center" border="1" style="border-collapse: collapse" class="w-75 mt-4">
-        <tr>
-          <th colspan="2">商品名</th>
-          <th>価格</th>
-          <th>個数</th>
-          <th>合計</th>
-        </tr>
-        <% @cart_items.each do |cart_item| %>
+      <div id="acount">
+        <table align="center" border="1" style="border-collapse: collapse" class="w-75 mt-4">
           <tr>
-            <td rowspan="2"><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150 %></td>
-            <td><%= cart_item.item.item_name %></td>
-            <td rowspan="2"><%= cart_item.item.sales_status_make %></td>
-            <td rowspan="2"><%= cart_item.quantity %></td>
-            <td rowspan="2"><%= cart_item.sum_of_price.to_s(:delimited) %></td>
+            <th colspan="2">商品名</th>
+            <th>価格</th>
+            <th>個数</th>
+            <th>合計</th>
           </tr>
-          <tr>
-            <td>
-              <div class="item">サイズ:<%= cart_item.size %></div>
-            </td>
-          </tr>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td rowspan="2"><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150 %></td>
+              <td><%= cart_item.item.item_name %></td>
+              <td rowspan="2"><%= cart_item.item.sales_status_make %></td>
+              <td rowspan="2"><%= cart_item.quantity %></td>
+              <td rowspan="2"><%= cart_item.sum_of_price.to_s(:delimited) %></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">サイズ:<%= cart_item.size %></div>
+              </td>
+            </tr>
+          <% end %>
+          <caption>小計 ¥<%= @total.round.to_s(:delimited)%></caption>
+          <caption>送料 ¥<%= @postage %></caption>
+          <caption>請求金額 ¥<%= @totals.round.to_s(:delimited) %></caption>
+          <caption>支払方法:  <%= @payment %></caption>
+          <caption>お届け先:  <%= @shipping.address %></caotion>
+        </table>
+        <%= form_with model:@order, url:orders_path, method: :post, local:true do |f| %>
+          <%= f.hidden_field :postage, :value => 500 %>
+          <%= f.hidden_field :payment, :value => @payment %>
+          <%= f.hidden_field :shipping_id, :value => @shipping.id %>
+          <%= f.hidden_field :address, :value => @shipping.address %>
+          <%= f.hidden_field :name, :value => @shipping.recipient_name %>
+          <%= f.submit '注文完了', name: nil %>
         <% end %>
-        <caption>小計 ¥<%= @total.round.to_s(:delimited)%></caption>
-        <caption>送料 ¥<%= @postage %></caption>
-        <caption>請求金額 ¥<%= @totals.round.to_s(:delimited) %></caption>
-        <caption>支払方法:  <%= @payment %></caption>
-        <caption>お届け先:  <%= @shipping.address %></caotion>
-      </table>
-      <%= form_with model:@order, url:orders_path, method: :post, local:true do |f| %>
-        <%= f.hidden_field :postage, :value => 500 %>
-        <%= f.hidden_field :payment, :value => @payment %>
-        <%= f.hidden_field :shipping_id, :value => @shipping.id %>
-        <%= f.hidden_field :address, :value => @shipping.address %>
-        <%= f.hidden_field :name, :value => @shipping.recipient_name %>
-        <%= f.submit '注文完了', name: nil %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
