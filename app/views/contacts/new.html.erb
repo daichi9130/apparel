@@ -1,34 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h1 class="name mb-5 mt-5">CONTACT</h1>
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center">
+      <h1 class="name mt-5">CONTACT</h1>
+      <div id="contact">
+        <div>
+          <font color="red">
+ 　　       　<% if @contact.errors.any? %>
+　　　        <%= @contact.errors.count %>件未入力項目があります
+ 　　       　<% end %>
+ 　      　</font>
+        </div>
+        <%= form_with model:@contact, url:contacts_path, local:true do |f| %>
+          <table class="text-left">
+            <tr>
+              <th width="200px" height="70px"><%= f.label :お名前 %></th>
+              <td width="400px"><%= f.text_field :name, placeholder: "お名前", size: 36 %></td>
+            </tr>
+            <tr>
+              <th height="70px"><%= f.label :メールアドレス %></th>
+              <td><%= f.email_field :email, placeholder: "メールアドレス", size: 36 %></td>
+            </tr>
+            <tr>
+               <th valign="top" class="pt-4"><%= f.label :お問い合わせ内容 %></th>
+               <td class="pt-4"><%= f.text_area :message, size: "35x6" %></td>
+            </tr>
+          </table>
+        </div>
+            <div class="pt-4">
+              <%= f.submit 'この内容で送信する', class: 'btn btn-dark' %>
+            </div>
+        <% end %>
     </div>
+    <div class="col-md-1"></div>
   </div>
-
-  <%= form_with model:@contact, url:contacts_path, local:true do |f| %>
-    <div class="row">
-      <div class="col-md-12 text-center mb-4">
-        <%= f.text_field :name, placeholder: "お名前", size: 30 %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <%= f.email_field :email, placeholder: "メールアドレス", size: 30 %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center mt-3">
-          <%= f.label :お問い合わせ内容 %><br/>
-          <%= f.text_area :message, size: "35x4" %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <%= f.submit 'この内容で確認する', class: 'btn btn-dark' %>
-      </div>
-    </div>
-  <% end %>
- </div>
+</div>
