@@ -1,47 +1,55 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2"></div>
-      <div class="col-md-8 text-center mt-4">
-        <h1>My ACCOUNT</h1>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1 class="text-center mt-4">My ACCOUNT</h1>
+    </div>
+    <div class="col-md-3">
+      <div class="mt-4 text-right">
+        <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %>
       </div>
-      <div class="col-md-2 mt-4">
-        <span><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class:"btn btn-secondary" %></span>
-      </div>
+    </div>
   </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-        <div class="col-md-4 text-center ml-3">
-          <div class="box bg-light w-75 ml-4">
-            <h5 class="text-left ml-3">注文履歴</h5>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="text-center mt-4">注文履歴</h4>
+        <div id="acount">
+          <% if @orders.present? %>
             <% @orders.each do |order| %>
-              <div class="item">
-                <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
-                  <%= l order.created_at %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-        <div class="col-md-8 text-center ml-4 mt-4">
-          <div class="box bg-light w-75 ml-5">
-            <h5 class="text-left ml-3">アカウント詳細</h5>
-              <% @shippings.each do |ship| %>
-                <div class="item">
-                  宛先:  <%= ship.recipient_name %>
-                  〒:  <%= ship.postal_code %>
-                  住所:  <%= ship.address %>
-                  <%= link_to '削除', shipping_path(ship.id), method: :delete, :style=>"color:red;" %>
-                </div>
+              <%= link_to item_customers_path(order_id: order.id), :style=>"color:black;" do %>
+                <%= l order.created_at %>
               <% end %>
-              <div class="item text-right mr-2">
-                <%= link_to '住所追加', new_shipping_path, class:'btn btn-primary p-0' %>
-              </div>
-          </div>
+            <% end %>
+          <% else %>
+            <p class="text-center mt-4">注文履歴はございません</p>
+          <% end %>
         </div>
-      <div class="col-md-2"></div>
     </div>
+    <div class="col-md-6">
+      <h4 class="text-center mt-4">アカウント詳細</h4>
+        <div id="shipping">
+          <% @shippings.each do |ship| %>
+            <table class="text-left mt-4">
+              <tr>
+                <th width="100px">宛先</th>
+                <td width="300px"><%= ship.recipient_name %></td>
+                <td rowspan="3" ><%= link_to '削除', shipping_path(ship.id), method: :delete, :style=>"writing-mode: vertical-rl;", class: "btn btn-danger" %></td>
+              </tr>
+              <tr>
+                <th>郵便〒</th>
+                <td><%= ship.postal_code %></td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td><%= ship.address %></td>
+              </tr>
+            </table>
+          <% end %>
+        </div>
+      <div class="text-center mt-4">
+        <%= link_to '住所追加', new_shipping_path, class:'btn btn-primary w-25' %>
+      </div>
+    </div>
+  </div>
 </div>
+
