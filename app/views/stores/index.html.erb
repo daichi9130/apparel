@@ -1,44 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1 class="item text-center mt-5">STORE</h1>
-    </div>
-  </div>
-  <% @shop.each do |shop| %>
-  <div class="row">
-    <!--<div class="col-md-2"></div>-->
-      <div class="col-md-12">
-        <table border="1" class="mx-auto mt-4">
-          <tr>
-            <th width="300px" class="pl-2">店舗名</th>
-            <td width="500px"><%= shop.name %></td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">郵便番号</th>
-            <td><%= shop.postal %></td>
-          </tr>
-          <tr>
-            <th valign="top" class="pl-2">住所</th>
-            <td>
-              <span><%= shop.address %></span>
-              <span class="ml-2"><%= link_to '地図を表示', store_path(shop.id), data: {"turbolinks" => false} %></span>
-            </td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">電話番号</th>
-            <td><%= shop.tell %></td>
-          </tr>
-
-          <tr>
-            <th class="pl-2">営業時間</th>
-            <td><%= shop.begin_at.strftime("%H:%M") %>~<%= shop.closed_at.strftime("%H:%M") %></td>
-          </tr>
-        </table>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1 class="text-center mt-5">STORE</h1>
+      <div id="store">
+        <% @shop.each do |shop| %>
+          <table border="1" class="mx-auto mt-4">
+            <tr>
+              <th width="300px" class="pl-2">店舗名</th>
+              <td width="500px" class="pl-2"><%= shop.name %></td>
+            </tr>
+            <tr>
+              <th class="pl-2">郵便番号</th>
+              <td class="pl-2"><%= shop.postal %></td>
+            </tr>
+            <tr>
+              <th valign="top" class="pl-2">住所</th>
+              <td>
+                <span class="pl-2"><%= shop.address %></span>
+                <span class="ml-2"><%= link_to '地図を表示', store_path(shop.id), data: {"turbolinks" => false} %></span>
+              </td>
+            </tr>
+            <tr>
+              <th class="pl-2">電話番号</th>
+              <td class="pl-2"><%= shop.tell %></td>
+            </tr>
+            <tr>
+              <th class="pl-2">営業時間</th>
+              <td class="pl-2"><%= shop.begin_at.strftime("%H:%M") %>~<%= shop.closed_at.strftime("%H:%M") %></td>
+            </tr>
+          </table>
+        <% end %>
       </div>
-      <!--<div class="col-md-2">-->
-      <!--</div>-->
+    </div>
+    <div class="col-md-1"></div>
   </div>
-  <% end %>
 </div>

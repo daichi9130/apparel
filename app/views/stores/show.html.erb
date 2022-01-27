@@ -1,35 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 mt-5">
-      <table border="1" class="mx-auto">
-        <tr>
-          <th width="300px" class="pl-2">店舗名</th>
-          <td width="600px"><%= @shop.name %></td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">郵便番号</th>
-          <td><%= @shop.postal %></td>
-        </tr>
-        <tr>
-          <th valign="top" class="pl-2">住所</th>
-          <td>
-            <%= @shop.address %>
-            <div id="map"></div>
-          </td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">電話番号</th>
-          <td><%= @shop.tell %></td>
-        </tr>
-
-        <tr>
-          <th class="pl-2">営業時間</th>
-          <td><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
-        </tr>
-      </table>
+    <div class="col-md-1"></div>
+    <div class="col-md-10 mt-5">
+      <div id="store">
+        <table border="1" class="mx-auto">
+          <tr>
+            <th width="300px" class="pl-2">店舗名</th>
+            <td width="650px" class="pl-2"><%= @shop.name %></td>
+          </tr>
+          <tr>
+            <th class="pl-2">郵便番号</th>
+            <td class="pl-2"><%= @shop.postal %></td>
+          </tr>
+          <tr>
+            <th valign="top" class="pl-2">住所</th>
+            <td class="pl-2">
+              <%= @shop.address %>
+              <div id="map"></div>
+            </td>
+          </tr>
+          <tr>
+            <th class="pl-2">電話番号</th>
+            <td class="pl-2"><%= @shop.tell %></td>
+          </tr>
+          <tr>
+            <th class="pl-2">営業時間</th>
+            <td class="pl-2"><%= @shop.begin_at.strftime("%H:%M") %>~<%= @shop.closed_at.strftime("%H:%M") %></td>
+          </tr>
+        </table>
+      </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 
