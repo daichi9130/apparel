@@ -5,12 +5,10 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build: init
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Deploy
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
